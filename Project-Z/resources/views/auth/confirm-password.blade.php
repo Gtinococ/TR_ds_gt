@@ -1,8 +1,8 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            <a href="/gtinoco/curs2021/tr_ds_gt/TR_ds_gt/Project-Z/public">
+                <img style="height:100px;width:100px;" src="images/logo_Project-Z.png" >    
             </a>
         </x-slot>
 

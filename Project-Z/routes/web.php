@@ -21,4 +21,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/aspectos', function () {
+    return view('aspectos');
+})->middleware(['auth'])->name('aspectos');
+
+Route::get('/noticias', function () {
+    return view('noticias');
+})->middleware(['auth'])->name('noticias');
+
+Route::get('/aboutus', function () {
+    return view('aboutus');
+})->middleware(['auth'])->name('aboutus');
+
 require __DIR__.'/auth.php';

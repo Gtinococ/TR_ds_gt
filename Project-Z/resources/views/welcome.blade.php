@@ -32,7 +32,7 @@
             float: left;
             color: white;
             text-align: center;
-            padding: 25px 25px;
+            padding: 30px 25px;
             text-decoration: none;
             font-size: 17px;
             font-weight: bold;
@@ -166,30 +166,41 @@
                 </div>
             </div>
         </div>
+
         <img id="fondo" class="bg-image" src="images/fondo.jpg" alt="Fondo">
+
         <div class="body-container container-flex">
+
             <div class="info-container row container offset-md-1 col-md-10 offset-md-1">
                 <div class="info offset-md-1 col-md-10 offset-md-1 ">
                 </div>
             </div>
+
         </div>
+
         <div id="carousel-border" class="border">
+
             <div id="carouselExampleControls" class="carousel slide row " data-ride="carousel">
-                <ol class="carousel-indicators">
+                <!-- <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner ">
+                </ol> -->
+
+                <div class="carousel-inner" role="listbox">
+
                     <div class="carousel-item active">
-                    <img class="d-block" src="images/fondo.jpg" alt="First slide">
+                        <img src="images/fondo.jpg" alt="First slide" width="1100" class="responsive">
                     </div>
+
                     <div class="carousel-item">
-                    <img class="d-block" src="images/fondo.jpg" alt="Second slide">
+                        <img src="images/fondo.jpg" alt="Second slide" width="1100" class="responsive">
                     </div>
+                    
                     <div class="carousel-item">
-                    <img class="d-block" src="images/fondo.jpg" alt="Third slide">
+                        <img src="images/fondo.jpg" alt="Third slide" width="1100" class="responsive">
                     </div>
+
                 </div>    
             </div>
         </div>
