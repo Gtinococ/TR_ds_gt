@@ -1,23 +1,127 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
-        <title>Proyect Z</title>
+<header>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        <!-- Styles -->
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+    </header>
+    <body>
+        <div class=" mx-auto px-4 sm:px-6 lg:px-8 topnav">
+            <div class="flex-shrink-0 flex items-center">
+                <img style="height:63px;width:63px;" src="{{URL::asset('images/logo_Project-Z.png')}}">
+                <div class="offset-md-8 col-md-3 col-sm-9 col-9 login-continer">
+                    @if (Route::has('login'))
+                        <div class="">
+                            @auth
+                                <a href="{{ url('/juego') }}" class="login text-sm text-gray-700 underline">Pagina principal</a>
+                            @else
+                                <a href="{{ route('login') }}" class="login col-md-6 col-sm-6 col-6 text-sm text-gray-700 underline">Log in</a>
+
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="register col-md-6 col-sm-6 col-6 text-sm text-gray-700 underline">Registrarse</a>
+                                @endif
+                            @endauth
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+
+        <!-- <img id="fondo" class="bg-image" src="images/fondo.jpg" alt="Fondo">
+
+        <div class="body-container container-flex">
+
+            <div class="info-container row container offset-md-1 col-md-10 offset-md-1">
+                <div class="info offset-md-1 col-md-10 offset-md-1 ">
+                </div>
+            </div>
+
+        </div>
+
+        <div id="carousel-border" class="border">
+
+            <div id="carouselExampleControls" class="carousel slide row " data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol> 
+
+                <div class="carousel-inner" role="listbox">
+
+                    <div class="carousel-item active">
+                        <img src="images/fondo.jpg" alt="First slide" width="1100" class="responsive">
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="images/fondo.jpg" alt="Second slide" width="1100" class="responsive">
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <img src="images/fondo.jpg" alt="Third slide" width="1100" class="responsive">
+                    </div>
+
+                </div>    
+            </div>
+        </div> -->
+        <footer class="text-center text-lg-start">
+            <!-- Grid container -->
+            <div class="container p-4">
+                <!--Grid row-->
+                <div class="row">
+                <!--Grid column-->
+                    <div class="col-lg-6 col-md-12 mb-6 mb-md-0">
+                        <h5 class="text-uppercase">Contact Us</h5>
+
+                        <p>
+                        Contact: projectz.contact@gmail.com
+                        </br>
+                        Tel: 666 666 666
+                        </p>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-6 col-md-12 mb-6 mb-md-0">
+                        <h5 class="text-uppercase">Social Media</h5>
+
+                        <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-dark">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Link 2</a>
+                        </li>
+                        </ul>
+                    </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="cr-container p-3 text-light">
+                © 2020 Copyright:
+                <a class="text-light">Prozectz.com</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </body>
         <style>
             body{   
                 background-color: #C4C4C4;
-                font-family: 'Nunito', sans-serif;
+                font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
                 margin:0px 0px 0px 0px;
             }
 
@@ -32,7 +136,6 @@
             float: left;
             color: white;
             text-align: center;
-            padding: 30px 25px;
             text-decoration: none;
             font-size: 17px;
             font-weight: bold;
@@ -77,6 +180,8 @@
 
             .logo{
                 float:left;
+                height:63px;
+                width:63px;
             }
 
             .carousel-inner{
@@ -142,112 +247,17 @@
                 font-weight: bold;
             }
 
+            .login{
+                padding-top: 20px;
+                padding-bottom: 20px;
+
+            }
+
+            .register{
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
         </style>
-    </head>
-    <body>
-        <div class="container-fluid topnav">
-            <div class="row">
-                <img class="col-md-1 col-sm-3 col-3 logo" src="images/logo_Project-Z.png" >
-                <div class="offset-md-8 col-md-3 col-sm-9 col-9 login-continer">
-                
-                    @if (Route::has('login'))
-                        <div class="row login">
-                            @auth
-                                <a href="{{ url('/dashboard') }}" class=" text-sm text-gray-700 underline">Dashboard</a>
-                            @else
-                                <a href="{{ route('login') }}" class="col-md-6 col-sm-6 col-6 text-sm text-gray-700 underline">Log in</a>
 
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="col-md-6 col-sm-6 col-6 text-sm text-gray-700 underline">Register</a>
-                                @endif
-                            @endauth
-                        </div>
-                    @endif
-                </div>
-            </div>
-        </div>
-
-        <img id="fondo" class="bg-image" src="images/fondo.jpg" alt="Fondo">
-
-        <div class="body-container container-flex">
-
-            <div class="info-container row container offset-md-1 col-md-10 offset-md-1">
-                <div class="info offset-md-1 col-md-10 offset-md-1 ">
-                </div>
-            </div>
-
-        </div>
-
-        <div id="carousel-border" class="border">
-
-            <div id="carouselExampleControls" class="carousel slide row " data-ride="carousel">
-                <!-- <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol> -->
-
-                <div class="carousel-inner" role="listbox">
-
-                    <div class="carousel-item active">
-                        <img src="images/fondo.jpg" alt="First slide" width="1100" class="responsive">
-                    </div>
-
-                    <div class="carousel-item">
-                        <img src="images/fondo.jpg" alt="Second slide" width="1100" class="responsive">
-                    </div>
-                    
-                    <div class="carousel-item">
-                        <img src="images/fondo.jpg" alt="Third slide" width="1100" class="responsive">
-                    </div>
-
-                </div>    
-            </div>
-        </div>
-        <footer class="text-center text-lg-start">
-            <!-- Grid container -->
-            <div class="container p-4">
-                <!--Grid row-->
-                <div class="row">
-                <!--Grid column-->
-                    <div class="col-lg-6 col-md-12 mb-6 mb-md-0">
-                        <h5 class="text-uppercase">Contact Us</h5>
-
-                        <p>
-                        Contact: projectz.contact@gmail.com
-                        </br>
-                        Tel: 666 666 666
-                        </p>
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-lg-6 col-md-12 mb-6 mb-md-0">
-                        <h5 class="text-uppercase">Social Media</h5>
-
-                        <ul class="list-unstyled mb-0">
-                        <li>
-                            <a href="#!" class="text-dark">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-dark">Link 2</a>
-                        </li>
-                        </ul>
-                    </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                </div>
-                <!--Grid row-->
-            </div>
-            <!-- Grid container -->
-
-            <!-- Copyright -->
-            <div class="cr-container p-3 text-light">
-                © 2020 Copyright:
-                <a class="text-light">Prozectz.com</a>
-            </div>
-            <!-- Copyright -->
-        </footer>
-    </body>
 </html>

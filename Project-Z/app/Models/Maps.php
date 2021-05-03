@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Achievements extends Model
+class Maps extends Model
 {
     use HasFactory;
 
-    protected $table = 'achievements';
+    protected $table = 'maps';
 
     protected $fillable = [
         'id',
-        'achiev_id',
         'name',
-        'description',
-        'img'
+        'description'
     ];
 }

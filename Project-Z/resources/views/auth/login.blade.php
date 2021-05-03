@@ -41,17 +41,25 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div style="float:left;" class=" items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('¿Has olvidado la contraseña?') }}
                     </a>
                 @endif
+                <div>
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                        {{ __('¿No tienes cuenta y quieres tenerla?') }}
+                    </a>
+                </div>
+                
 
-                <x-button style="background: #9D00B3" class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
             </div>
+            <x-button style="background: #9D00B3;float:right;" class="ml-1 mt-4">
+                    {{ __('Log in') }}
+            </x-button>
+            
+
         </form>
     </x-auth-card>
 </x-guest-layout>
