@@ -1,6 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<header>
+<x-app-layout>
+    <x-slot name="header">
+        <div class="row">
+            <h1 class="titulo col-md-12 ">{{ __('PROYECT-Z') }}</h1>
+        </div>
+        
+    </x-slot>
+    <header>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -13,111 +18,109 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
     </header>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="fondo col-md-12 col-xs-12 bg-white overflow-hidden sm:rounded-lg">
+            <div class="fondo p-6 bg-white border-b border-gray-200">
+                <div class="admin-box">
+                    <div clas="content-container">
+                        <div class="caja">
+                            <img class="img" style="border-radius:5px;" src="images/fondo.jpg"  alt="Los Angeles" width="100%" height="100%">
+                            <div class="row-box row justify-content-around">
+                                <div class="col-md-12">
+                                    <div class="text col-md-12">
+                                        <a class="name1">¿TE ATREVES?</a></br></br>
+                                        <a class="name2">¡¡ REESCRIBE LA HISTORIA !!</a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</x-app-layout>
+
+
+<!-- <!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<header>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </header>
     <body>
-        <div class=" mx-auto px-4 sm:px-6 lg:px-8 topnav">
-            <div class="flex-shrink-0 flex items-center">
-                <img style="height:63px;width:63px;" src="{{URL::asset('images/logo_Project-Z.png')}}">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <img style="height:63px;width:63px;" src="{{URL::asset('images/logo_Project-Z.png')}}">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="login-delocos collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="offset-md-8 col-md-3 col-sm-9 col-9 login-continer">
                     @if (Route::has('login'))
                         <div class="">
                             @auth
                                 <a href="{{ url('/juego') }}" class="login text-sm text-gray-700 underline">Pagina principal</a>
                             @else
-                                <a href="{{ route('login') }}" class="login col-md-6 col-sm-6 col-6 text-sm text-gray-700 underline">Log in</a>
+                                <a href="{{ route('login') }}" class="login col-md-6 col-sm-12 col-xs-12 col-6 text-sm underline">Log in</a>
 
                                 @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="register col-md-6 col-sm-6 col-6 text-sm text-gray-700 underline">Registrarse</a>
+                                    <a href="{{ route('register') }}" class="register col-md-6 col-sm-12 col-xs-12 col-6 text-sm underline">Registrarse</a>
                                 @endif
                             @endauth
                         </div>
                     @endif
                 </div>
             </div>
+        </nav>
+        <div clas="content-container">
+        <div style="position:relative;">
+            <img  clss="img" style="" src="images/fondo.jpg"  alt="Los Angeles" width="100%" height="100%">
         </div>
-
-        <!-- <img id="fondo" class="bg-image" src="images/fondo.jpg" alt="Fondo">
-
-        <div class="body-container container-flex">
-
-            <div class="info-container row container offset-md-1 col-md-10 offset-md-1">
-                <div class="info offset-md-1 col-md-10 offset-md-1 ">
-                </div>
-            </div>
-
+            <p style="text-align:center; color:grey; font-weight: bold; font-size:50px;">_____________________</p>
+            <p style="text-align:center; color:white; font-size:50px; font-weight: bold;">¿TE ATREVES?</p>
+            <p style="text-align:center; color:grey; font-size:50px; font-weight: bold;">¡¡REESCRIBE LA HISTORIA!!</p>
         </div>
-
-        <div id="carousel-border" class="border">
-
-            <div id="carouselExampleControls" class="carousel slide row " data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol> 
-
-                <div class="carousel-inner" role="listbox">
-
-                    <div class="carousel-item active">
-                        <img src="images/fondo.jpg" alt="First slide" width="1100" class="responsive">
-                    </div>
-
-                    <div class="carousel-item">
-                        <img src="images/fondo.jpg" alt="Second slide" width="1100" class="responsive">
-                    </div>
-                    
-                    <div class="carousel-item">
-                        <img src="images/fondo.jpg" alt="Third slide" width="1100" class="responsive">
-                    </div>
-
-                </div>    
-            </div>
-        </div> -->
-        <footer class="text-center text-lg-start">
-            <!-- Grid container -->
-            <div class="container p-4">
-                <!--Grid row-->
+        <footer class="footer text-center text-lg-start">
+            <div class="container1 p-4">
                 <div class="row">
-                <!--Grid column-->
-                    <div class="col-lg-6 col-md-12 mb-6 mb-md-0">
+                    <div class="col-lg-6 col-md-6 mb-6 col-xs-12">
                         <h5 class="text-uppercase">Contact Us</h5>
 
-                        <p>
-                        Contact: projectz.contact@gmail.com
+                        <a class="contact">Contact: projectz.contact@gmail.com</a>
                         </br>
-                        Tel: 666 666 666
-                        </p>
+                        <a class="contact">Tel: 666 666 666</a>
                     </div>
-                    <!--Grid column-->
 
-                    <!--Grid column-->
-                    <div class="col-lg-6 col-md-12 mb-6 mb-md-0">
+                    <div class="col-lg-6 col-md-6 mb-6 col-xs-12">
                         <h5 class="text-uppercase">Social Media</h5>
 
                         <ul class="list-unstyled mb-0">
                         <li>
-                            <a href="#!" class="text-dark">Link 1</a>
+                            <a href="https://twitter.com/dokkanbattle_es?lang=ca"><img  clss="img" src="images/social-media/twitter_logo.png"  alt="Los Angeles" width="25px" height="25px"></a>
                         </li>
                         <li>
-                            <a href="#!" class="text-dark">Link 2</a>
+                        <a href="https://www.instagram.com/"><img href="https://www.instagram.com/" clss="img" style="margin-top:10px;" src="images/social-media/inst-logo.png"  alt="Los Angeles" width="25px" height="25px"></a>
                         </li>
                         </ul>
                     </div>
-                <!--Grid column-->
 
-                <!--Grid column-->
                 </div>
-                <!--Grid row-->
             </div>
-            <!-- Grid container -->
-
-            <!-- Copyright -->
             <div class="cr-container p-3 text-light">
                 © 2020 Copyright:
                 <a class="text-light">Prozectz.com</a>
             </div>
-            <!-- Copyright -->
         </footer>
-    </body>
+    </body> -->
         <style>
             body{   
                 background-color: #C4C4C4;
@@ -126,32 +129,33 @@
             }
 
             /* Add a black background color to the top navigation */
-            .topnav {
+            .navbar {
             background-color: #9D00B3;
             overflow: hidden;
+            padding:0px 16px 0px 16px !important;
             }
 
             /* Style the links inside the navigation bar */
-            .topnav a {
-            float: left;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: bold;
+            .navbar a {
+                float: right;
+                color: white;
+                text-align: center;
+                text-decoration: none;
+                font-size: 17px;
+                font-weight: bold;
             
             }
 
             /* Change the color of links on hover */
-            .topnav a:hover {
-            background-color: #4CAF50;
-            color: black;
+            .navbar a:hover {
+                background-color: #4CAF50;
+                color: black;
             }
 
             /* Add a color to the active/current link */
             .topnav a.active {
-            background-color: #4CAF50;
-            color: white;
+                background-color: #4CAF50;
+                color: white;
             }
 
             .bg-image {
@@ -170,8 +174,8 @@
                 background-position:center;
             }
 
-            #fondo{
-                border:5px solid black;
+            .fondo{
+                background-color: transparent !important;
             }
 
             .login-continer{
@@ -191,8 +195,6 @@
             .carousel-item{
                 margin-left: auto;
                 margin-right: auto;
-
-
             }
 
             #carouselExampleControls .d-block{
@@ -257,6 +259,96 @@
                 padding-top: 20px;
                 padding-bottom: 20px;
             }
+
+            .content-container{
+                margin-left:30%;
+            }
+
+            .container1{
+                border-top: 2px solid white;
+
+                background-color: black;
+                padding-left: 10px;
+                background-color: rgba(135, 135, 135, 0.8) !important; 
+            }
+
+            .admin-box{
+                background-color: white;
+                border: 1px solid #D3D3D3;
+                border-radius: 5px;
+                padding: 10px;
+                box-shadow: 5px 5px 5px grey;
+
+            }
+
+            .titulo{
+                text-align:center;
+                color: rgba(157,0,179,1);
+                font-family: "Arial Black", sans-serif;
+                letter-spacing: -1px;
+                text-shadow: 2px 0 0 white, -2px 0 0 white, 0 2px 0 white, 0 -2px 0 white, 1px 1px white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white;
+                background-color:  #D3D3D3;
+                border: 1px solid #D3D3D3;
+                border-radius: 10px;
+                box-shadow: 0px 5px 5px grey;
+
+            }
+
+            .row-box{
+                margin:30px 0px 20px 0px;              
+            }
+
+            .info-container{
+                background-color: rgba(157,0,179,0.7);
+                border: 2px solid #D3D3D3;
+                border-radius: 5px;
+                padding: 10px 10px 10px 15px;
+                margin-bottom: 30px;
+                box-shadow: 5px 5px 5px grey;
+
+            }
+
+            .name1{
+                font-weight: bold;
+                color: white !important;
+                text-align: center;
+                font-size:50px;
+            }
+
+            .name2{
+                font-weight: bold;
+                color: white !important;
+                text-align: center;
+                font-size:70px;
+            }
+
+            .text{
+                position: absolute;
+                top:-280px;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .caja{
+                position: relative;
+                text-align: center;
+            }
+
+            @media (max-width: 375px) {
+                .name1{
+                    font-weight: bold;
+                    color: transparent !important;
+                    text-align: center;
+                }
+
+                .name2{
+                    font-weight: bold;
+                    color: transparent !important;
+                    text-align: center;
+                }
+            }
+
+            
+
 
         </style>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MapsController;
 use App\Http\Controllers\WeaponController;
 use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\NoticiasController;
 
 
 /*
@@ -44,10 +45,7 @@ Route::get('/historia/personajes',[CharacterController::class, 'index'])->middle
 
 
 //NOTICIAS y sus subapartados
-Route::get('/noticias', function () {
-    return view('/NOTICIAS/noticias');
-})->middleware(['auth'])->name('noticias');
-
+Route::get('/noticias',[NoticiasController::class, 'index'])->middleware(['auth'])->name('noticias');
 Route::get('/noticias/notas-del-parche', function () {
     return view('/NOTICIAS/notas');
 })->middleware(['auth'])->name('notas');
@@ -65,6 +63,8 @@ Route::get('/perfil',[UserController::class, 'index'])->middleware(['auth'])->na
 Route::get('/perfil/{id}',[UserController::class, 'destroy'])->middleware(['auth'])->name('destroy');
 Route::get('perfil/edit/{id}',[UserController::class, 'edit'])->middleware(['auth'])->name('edit');
 Route::post('perfil/update/{id}',[UserController::class, 'update'])->middleware(['auth'])->name('update');
+Route::get('perfil/upload/{id}',[UserController::class, 'create'])->middleware(['auth'])->name('create');
+Route::post('perfil/image/{id}',[UserController::class, 'store'])->middleware(['auth'])->name('image');
 
 
 

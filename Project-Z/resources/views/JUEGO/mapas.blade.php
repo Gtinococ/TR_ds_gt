@@ -24,19 +24,17 @@
             <div class="fondo p-6 bg-white border-b border-gray-200">
                 <div class="admin-box">
                     @foreach ($mapas as $mapa)
-                        <div class="mapa col-md-12">
-                            <div class="" >
-                                <h3 class="name">{{ $mapa->name }}</h3><br>
-                                
-                                <div  class="container-desc">
-                                    <img style="height:400px;width:700px;border-radius:5px;margin:10px;" src="{{{URL::asset('images/fondo.jpg')}}}">
-                                </div> <br>
-                                
-                                <div class="container-desc">
-                                    <a class="description ">{{ $mapa->description }}</a><br>
+                        <div class="logro col-md-12">
+                            <h3 class="name">{{$mapa->name}}</h3>
+                            <div class="row">
+                                <div class=" col-md-5">
+                                    <img class="images" src="{{{URL::asset('images/fondo.jpg')}}}">
                                 </div>
-                            </div> 
-                    </div>
+                                <div class="description col-md-6">
+                                    <a>{{ $mapa->description }}</a><br>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -44,8 +42,8 @@
     </div>
     
     <style>
- 
-        .mapa {
+    
+        .logro {
             background-color: rgba(157,0,179,0.7);
             border: 2px solid #D3D3D3;
             border-radius: 5px;
@@ -55,21 +53,9 @@
 
         }
 
-        .dificulty{
-            font-weight: bold;
-            color: white !important;
-            background-color: #9D00B3;
-            border: 2px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 5px 5px 5px 5px;
-            text-align: center;
-            
-        }
-
         .name{
             font-weight: bold;
             color: white !important;
-            
         }
 
         .container-desc{
@@ -111,4 +97,30 @@
         .fondo{
             background-color: transparent !important;
         }
+
+        .description{
+            border-radius: 5px;
+            margin-top:10px;
+            margin-right: 10px;
+            padding-left: 10px;
+            margin-bottom:10px;
+            color:black;
+            border: 2px solid white;
+            border-radius: 3px;
+            background-color: rgba(135, 135, 135, 0.8) !important; 
+        }
+
+        .images{
+            height:200px;
+            width:700px;
+            border-radius:5px;
+            margin:10px;
+        }
+
+        @media (max-width: 376) and (min-width: 374){
+            .description{
+                margin-right: 3px;
+            }
+        }
+
 </x-app-layout>

@@ -1,139 +1,220 @@
 <nav x-data="{ open: false }" class="border-b border-gray-100" style="background-color:rgba(159, 0, 179, 1);">
-    <!-- Primary Navigation Menu -->
-    <div class=" mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('juego') }}">
-                        <!--<x-application-logo class="block h-10 w-auto fill-current text-gray-600" />-->
-                        <img style="height:63px;width:63px;" src="{{URL::asset('images/logo_Project-Z.png')}}">
-                    </a>
+    @if(Auth::user())
+        <!-- Primary Navigation Menu -->
+        <div class=" mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="{{ route('juego') }}">
+                            <!--<x-application-logo class="block h-10 w-auto fill-current text-gray-600" />-->
+                            <img style="height:63px;width:63px;" src="{{URL::asset('images/logo_Project-Z.png')}}">
+                        </a>
+                    </div>
+                    
+                    <!-- Navigation Links -->
+                    <div class="nav-full hidden  is-fixed-top sm:flex">
+                        
+
+                        <x-nav-link :href="route('juego')" :active="request()->routeIs('juego')" style="color:white; font-weight: bold;">
+                            {{ __('JUEGO') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('historia')" :active="request()->routeIs('historia')" style="color:white; font-weight: bold;">
+                            {{ __('HISTORIA') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('armas')" :active="request()->routeIs('aspectos')" style="color:white; font-weight: bold;">
+                            {{ __('ARMAS') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('noticias')" :active="request()->routeIs('noticias')" style="color:white; font-weight: bold;">
+                            {{ __('NOTICIAS') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('aboutus')" :active="request()->routeIs('aboutus')" style="color:white; font-weight: bold;">
+                            {{ __('ABOUT US') }}
+                        </x-nav-link>
+                        
+                    </div>
                 </div>
 
-                <!-- Navigation Links -->
-                <div class="nav-full hidden  is-fixed-top sm:flex">
-                    
+                <!-- Settings Dropdown -->
+                <div class="hidden sm:flex sm:items-center sm:ml-6">
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                <div style="color:white; font-weight: bold;">{{ Auth::user()->name }}</div>
 
-                    <x-nav-link class="links" :href="route('juego')" :active="request()->routeIs('juego')" style="color:white; font-weight: bold;">
-                        {{ __('JUEGO') }}
-                    </x-nav-link>
-                    <x-nav-link class="links" :href="route('historia')" :active="request()->routeIs('historia')" style="color:white; font-weight: bold;">
-                        {{ __('HISTORIA') }}
-                    </x-nav-link>
-                    <x-nav-link class="links" :href="route('armas')" :active="request()->routeIs('aspectos')" style="color:white; font-weight: bold;">
-                        {{ __('ARMAS') }}
-                    </x-nav-link>
-                    <x-nav-link class="links" :href="route('noticias')" :active="request()->routeIs('noticias')" style="color:white; font-weight: bold;">
-                        {{ __('NOTICIAS') }}
-                    </x-nav-link>
-                    <x-nav-link class="links" :href="route('aboutus')" :active="request()->routeIs('aboutus')" style="color:white; font-weight: bold;">
-                        {{ __('ABOUT US') }}
-                    </x-nav-link>
+                                <div class="ml-1">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <!-- Authentication -->
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <x-dropdown-link :href="route('perfil')">
+                                        {{ __('Perfil') }}
+                                    </x-dropdown-link>
+
+                                    <x-dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Log out') }}
+                                    </x-dropdown-link>
+                                </form>
+                            
+                            
+                        </x-slot>
+                    </x-dropdown>
                     
+                </div>
+            
+                <!-- Hamburger -->
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Responsive Navigation Menu -->
+        <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+            <div class="nav-little sm:flex">
+                <x-responsive-nav-link :href="route('juego')" :active="request()->routeIs('juego')" style="color:white; font-weight: bold;">
+                    {{ __('JUEGO') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('historia')" :active="request()->routeIs('historia')" style="color:white; font-weight: bold;">
+                    {{ __('HISTORIA') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link class="links" :href="route('armas')" :active="request()->routeIs('aspectos')" style="color:white; font-weight: bold;">
+                            {{ __('ARMAS') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('noticias')" :active="request()->routeIs('noticias')" style="color:white; font-weight: bold;">
+                    {{ __('NOTICIAS') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('aboutus')" :active="request()->routeIs('aboutus')" style="color:white; font-weight: bold;">
+                    {{ __('ABOUT US') }}
+                </x-responsive-nav-link>
+            </div>
+
+            <!-- Responsive Settings Options -->
+            <div class="pt-4 pb-1 border-t border-gray-200">
+                <div class="flex items-center px-4">
+                    <div class="flex-shrink-0">
+                        @if(Auth::user()->img)
+                            <img style="height:63px;width:63px;border-radius:3px;" src="{{Auth::user()->img}}">
+                        @else
+                            <svg class=" w-16 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        @endif
+                    </div>
+
+                    <div class="ml-3">
+                        <div style="color:white; font-weight: bold;" class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                        <div style="color:white; font-weight: bold;" class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    </div>
+                </div>
+
+                <div class="nav-little mt-3 space-y-1">
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <x-responsive-nav-link style="color:white; font-weight: bold;" :href="route('perfil')">
+                                    {{ __('Perfil') }}
+                        </x-responsive-nav-link>
+
+                        <x-responsive-nav-link style="color:white; font-weight: bold;" :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Log out') }}
+                        </x-responsive-nav-link>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @else
+        @if (Route::has('login'))
+            <div class=" mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex">
+                        <!-- Logo -->
+                        <div class="flex-shrink-0 flex items-center">
+                            <a href="{{ route('juego') }}">
+                                <!--<x-application-logo class="block h-10 w-auto fill-current text-gray-600" />-->
+                                <img style="height:63px;width:63px;" src="{{URL::asset('images/logo_Project-Z.png')}}">
+                            </a>
+                        </div>
+                        <div class=" nav-full hidden is-fixed-top sm:flex">
+                            @auth
+                                <x-nav-link class="login-register" :href="route('juego')" :active="request()->routeIs('juego')" style="color:white; font-weight: bold;">
+                                    {{ __('PAGINA PRINCIPAL') }}
+                                </x-nav-link>
+
+                            @else
+                                <x-nav-link class="login-register" :href="route('login')" :active="request()->routeIs('login')" style="color:white; font-weight: bold;">
+                                    {{ __('INICIAR SESIÓN') }}
+                                </x-nav-link>
+
+                                @if (Route::has('register'))
+                                    <x-nav-link class="login-register" :href="route('register')" :active="request()->routeIs('register')" style="color:white; font-weight: bold;">
+                                        {{ __('REGISTRARSE') }}
+                                    </x-nav-link>
+                                @endif
+                            @endauth
+                        </div>
+                    </div> 
+
+                    <!-- Hamburger -->
+                    <div class="-mr-2 flex items-center sm:hidden">
+                        <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            <div style="color:white; font-weight: bold;">{{ Auth::user()->name }}</div>
+            <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+                <div class="nav-little sm:flex">    
+                    @auth
+                        <x-responsive-nav-link :href="route('juego')" :active="request()->routeIs('juego')" style="color:white; font-weight: bold;">
+                            {{ __('PAGINA PRINCIPAL') }}
+                        </x-responsive-nav-link>
 
-                            <div class="ml-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
+                    @else
+                        <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')" style="color:white; font-weight: bold;">
+                            {{ __('INICIAR SESIÓN') }}
+                        </x-responsive-nav-link>
 
-                    <x-slot name="content">
-                        <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <x-dropdown-link :href="route('perfil')">
-                                    {{ __('Perfil') }}
-                                </x-dropdown-link>
+                        @if (Route::has('register'))
+                            <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')" style="color:white; font-weight: bold;">
+                                {{ __('REGISTRARSE') }}
+                            </x-responsive-nav-link>
+                        @endif
+                    @endauth
+                    
+                </div>
 
-                                <x-dropdown-link :href="route('logout')"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                    {{ __('Log out') }}
-                                </x-dropdown-link>
-                            </form>
-                        
-                        
-                    </x-slot>
-                </x-dropdown>
                 
             </div>
-           
-            <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
 
-    <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="nav-little sm:flex">
-            <x-responsive-nav-link :href="route('juego')" :active="request()->routeIs('juego')" style="color:white; font-weight: bold;">
-                {{ __('JUEGO') }}
-            </x-responsive-nav-link>
-
-            <x-responsive-nav-link :href="route('historia')" :active="request()->routeIs('historia')" style="color:white; font-weight: bold;">
-                {{ __('HISTORIA') }}
-            </x-responsive-nav-link>
-
-            <x-responsive-nav-link :href="route('noticias')" :active="request()->routeIs('noticias')" style="color:white; font-weight: bold;">
-                {{ __('NOTICIAS') }}
-            </x-responsive-nav-link>
-
-            <x-responsive-nav-link :href="route('aboutus')" :active="request()->routeIs('aboutus')" style="color:white; font-weight: bold;">
-                {{ __('ABOUT US') }}
-            </x-responsive-nav-link>
-        </div>
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="flex items-center px-4">
-                <div class="flex-shrink-0">
-                    <svg class="h-10 w-10 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                </div>
-
-                <div class="ml-3">
-                    <div style="color:white; font-weight: bold;" class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                    <div style="color:white; font-weight: bold;" class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-                </div>
-            </div>
-
-            <div class="nav-little mt-3 space-y-1">
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <x-responsive-nav-link style="color:white; font-weight: bold;" :href="route('perfil')">
-                                {{ __('Perfil') }}
-                    </x-responsive-nav-link>
-
-                    <x-responsive-nav-link style="color:white; font-weight: bold;" :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log out') }}
-                    </x-responsive-nav-link>
-                </form>
-            </div>
-        </div>
-    </div>
+        @endif
+                    
+ 
+    @endif
 </nav>
 <style>
 
@@ -148,5 +229,8 @@
         color: black !important;
     }
 
+    .login-register{
+        float:right !important;
+    }
 
 </style>

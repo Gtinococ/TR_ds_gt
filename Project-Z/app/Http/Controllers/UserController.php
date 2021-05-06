@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Achievements;
+use App\Models\RelationControl;
 
 class UserController extends Controller
 {
@@ -17,10 +18,10 @@ class UserController extends Controller
     {
         $users = User::all();
         $logros = Achievements::all();
+        $relations = RelationControl::all();
+        //dd($relation);
+        return view('/perfil', compact(['users','logros','relations']));
 
-        return view('/perfil', compact(['users','logros']));
-
-       
     }
 
     /**
@@ -30,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('/upload');
     }
 
     /**
@@ -39,9 +40,16 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        User::findOrFail($id)->update([
+            'img' => 'user-img/'.time().'.'.$request->file->extension()
+        ]);
+
+        $imageName = time().'.'.$request->file->extension();
+        $request->file->move(public_path('user-img'), $imageName);
+        return redirect()->to('/perfil');
+
     }
 
     /**
@@ -79,17 +87,17 @@ class UserController extends Controller
         User::findOrFail($id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password
+            'password' => $request->password,
+            /* 'file' => $request->file */
+
         ]);
+        /* $imageName = time().'.'.$request->file->extension();
+        $request->file->move(public_path('images'), $imageName); */
+        
         return redirect()->to('/perfil');
 
 
-        /* $user=User::find($request->id);
-        $user->name=$request->name;
-        $user->email=$request->email;
-        $user->password=$request->password;
-        $user->save();
-        return redirect('perfil'); */
+
     }
 
     /**
@@ -107,4 +115,5 @@ class UserController extends Controller
         }
         
     }
+
 }

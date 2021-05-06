@@ -8,7 +8,17 @@
         </h2>
     </x-slot>
     <header>
+        <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
     </header>
     <div class="row max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="fondo col-md-12 col-xs-12 bg-white overflow-hidden sm:rounded-lg">
@@ -83,11 +93,11 @@
         }
 
         .container-desc{
-            border: 2px solid #D3D3D3;
-            border-radius: 5px;
-            background-color: white;
+            border: 2px solid white;
+            border-radius: 3px;
+            background-color: black;
             padding-left: 10px;
-            background-color: rgba(243, 244, 246, var(--tw-bg-opacity)) !important; 
+            background-color: rgba(135, 135, 135, 0.8) !important; 
         }
 
         .img{

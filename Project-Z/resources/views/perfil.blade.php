@@ -18,18 +18,72 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
     </header>
-    <div class="py-12">
-        <div class="row max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="col-md-12 col-xs-12 bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-gray-200">
+    <div class="row max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="fondo col-md-12 col-xs-12 bg-white overflow-hidden sm:rounded-lg">
+            <div class="fondo p-6 bg-white border-gray-200">
+                <div class="admin-box">
                     <h3>Datos personales</h3>
                     <div class="user-profile">
-                        <a class="datos" >Nombre: {{ Auth::user()->name }}</a> <br>
-                        <a class="datos" >Correo: {{ Auth::user()->email }}</a> <br>
-                        @if (Auth::user()->is_admin == 1)
-                            <a class="datos" >Rol: Administrador</a> <br>
-                        @endif
-                    </div>
+                        <div class="row">
+                            <div class="container-img col-12 col-md-2 col-lg-2">
+                                @if(Auth::user()->img)
+                                <img style="height:63px;width:63px;margin-top:7px;margin-left:7p;border-radius:3px;" src="{{Auth::user()->img}}">
+                                            
+                                @else
+                                    <svg style="margin-top:7px;margin-left:7px;" class=" w-16 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                @endif
+                            </div>
+                            @if (Auth::user()->is_admin == 1)
+                                <div class="description col-12 col-md-5 col-lg-3">
+                                @foreach($relations as $relation)  
+                                    {{$relation->user_id}}
+                                @endforeach
+                                    @if (Auth::user()->is_admin == 1)
+                                        <a class="datos" >Nombre: {{ Auth::user()->name }}</a> <br>
+                                        <a class="datos" >Correo: {{ Auth::user()->email }}</a> <br>
+                                        <a class="datos" >Rol: Administrador</a> <br>
+                                    @endif
+                                </div> 
+                            @else
+                               
+                                <div class="description-noadmin col-12 col-md-5 col-lg-3">
+                                    <a class="datos" >Nombre: {{ Auth::user()->name }}</a> <br>
+                                    <a class="datos" >Correo: {{ Auth::user()->email }}</a> <br>                                
+                                </div>
+
+                                                           
+                            @endif                            
+                            <div class="col-md-5 col-lg-7 col-xs-12 row box-logout">
+                                <div class="row">
+                                    <form class="col-md-12 col-lg-4 col-sm-4" method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <p >
+                                            <x-button style="background-color:rgba(255, 0, 0, 0.7);" class="button-logout" :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                                                {{ __('Cerrar sesión') }}
+                                            </x-button> 
+                                        </p> 
+                                    </form> 
+                                    <p class="col-md-12 col-lg-4  col-sm-4">
+                                        <x-button class="button-logout eliminar-user">
+                                            <a style="color:white" href="{{ 'perfil/upload/'.Auth::user()->id}}">
+                                                {{ __('Foto de perfil') }}
+                                            </a>
+                                        </x-button>                
+                                    </p>
+
+                                    <p class="col-md-12 col-lg-4 col-sm-4">
+                                        <x-button class="button-logout eliminar-user">
+                                            <a style="color:white" href="{{ 'perfil/edit/'.Auth::user()->id}}">
+                                                {{ __('Editar perfil') }}
+                                            </a>
+                                        </x-button>                
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                        
                     @if( Auth::user()->is_admin == 1)
                     <h3>Administrar usuarios</h3>
                         @if(Auth::user()->count())
@@ -46,10 +100,12 @@
                                         <div>
                                             <a class="datos" >Id: {{$user->id}}</a><br>
                                             <a class="datos" >Nombre: {{$user->name}}</a> <br>
-                                            <a class="datos" >Correo: {{$user->email}}</a> 
+                                            <a class="datos" >Correo: {{$user->email}}</a> <br>
+                                            <a class="datos" >Creación: {{$user->created_at}}</a> <br>
+                                            <a class="datos" >Última modificación: {{$user->updated_at}}</a> 
                                             <br>
                                             @if($user->is_admin)
-                                                <a class="datos">No puedes eliminar a otros administradores</a>
+                                                <a style="color:black;" class="datos">No puedes eliminar a otros usuarios que tengan el rol de administradores</a>
                                             @else
                                                 <x-button class="button-eliminar eliminar-user">
                                                     <a style="color:white" href="{{ 'perfil/'.$user->id}}">
@@ -68,73 +124,53 @@
                                     <a>No hay usuarios que adminsitrar</a>
                                 </div>
                             @endif
+                            </div>  
                         @endif
-                        </div>  
+                        
                     @endif
+
                     <h3>Tus logros</h3>
-                    <div class="admin-box">
+                    @foreach ($logros as $logro)
+                        @if($logro->dificulty == 1)
+                            <div class=" col-md-1 dificulty">
+                                <a>Fácil</a><br>
+                            </div>
+                            <div class="offset-md-11"></div>
+
                         
+                        @elseif($logro->dificulty == 2)
+                            <div class=" col-md-1 dificulty">
+                                <a>Difícl</a><br>
+                            </div>
+                            <div class="offset-md-11"></div>
 
-                            @foreach ($logros as $logro)
-                            <div class="admin-role">
-                                @if($logro->dificulty == 1)
-                                    <div class=" col-md-1 dificulty">
-                                        <a>Fácil</a><br>
-                                    </div>
-                                    <div class="offset-md-11"></div>
+                        @elseif($logro->dificulty == 3)
+                            <div class=" col-md-1 dificulty">
+                                <a>Imposible</a><br>
+                            </div>
+                            <div class="offset-md-11"></div>
 
-                                @elseif($logro->dificulty == 2)
-                                    <div class=" col-md-1 dificulty">
-                                        <a>Mediano</a><br>
-                                    </div>
-                                    <div class="offset-md-11"></div>
+                        @endif
+                        <div class="logro col-md-12">
 
-                                @elseif($logro->dificulty == 3)
-                                    <div class=" col-md-1 dificulty">
-                                        <a>Difícil</a><br>
-                                    </div>
-                                    <div class="offset-md-11"></div>
-
-                                @endif
-                                <div class="logro col-md-12">
-
-                                    <div class="">
-                                        <img style="height:63px;width:63px;" src="{{URL::asset('images/logo_Project-Z.png')}}">
-                                    </div>  
-                                    <div class="" >
-                                        <a class="name">{{ $logro->name }}</a><br>
-                                        
-                                        <div class="container-desc">
-                                            <a class="description ">{{ $logro->description }}</a><br>
-                                        </div>
-                                    </div> 
-                                    
+                            <div class="container-img">
+                                <img style="height:63px;width:63px;" src="{{$logro->img}}">
+                            </div>  
+                            <div class="" >
+                                <a class="name">{{ $logro->name }}</a><br>
+                                <div class="container-desc">
+                                    <a class="description ">{{ $logro->description }}</a><br>
                                 </div>
-                              </div>  
-                            @endforeach
-                        
-                    </div>
+                            </div> 
+                            
+                        </div>
+                    @endforeach
+                
                 </div>
+                
             </div>
-            <div class="col-md-12 col-xs-12 box-logout">
-               <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <p>
-                        <x-button class="button-logout" :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Cerrar sesión') }}
-                        </x-button> 
-                    </p> 
-                </form> 
-               
-                <x-button class="button-logout eliminar-user">
-                    <a style="color:white" href="{{ 'perfil/edit/'.Auth::user()->id}}">
-                        {{ __('Editar perfil') }}
-                    </a>
-                </x-button>
-                    
-            </div>
+
         </div>
-    </div>
     <style>
         .button-logout{
             background: #9D00B3;
@@ -142,7 +178,7 @@
             padding-left: 16px !important;
             padding-right: 16px !important;
         }
-
+        
         .button-eliminar{
             background: #9D00B3;
             margin-left: 12px !important;
@@ -161,21 +197,26 @@
         .user-profile{
             margin-bottom: 30px;
             padding: 10px 10px 10px 28px;
-            background-color: #C4C4C4;
+            background-color: rgba(157,0,179,0.7);
             border: 1px solid #D3D3D3;
             border-radius: 5px;
             box-shadow: 5px 5px 5px grey;
             font-weight: bold;
-
+            color:white;
         }
 
         .datos{
             margin-left: 13px;
         }
 
+        .no-admin{
+            margin-top:5px !important;
+        }
+
         .admin-role{
-            background-color: white ;
+            background-color: rgba(157,0,179,0.7);
             border: 1px solid #D3D3D3;
+            color:white;
             border-radius: 5px;
             padding: 10px 10px 10px 10px;
             box-shadow: 5px 5px 5px grey;
@@ -185,7 +226,7 @@
         }
 
         .admin-box{
-            background-color: #C4C4C4;
+            background-color: white;
             border: 1px solid #D3D3D3;
             border-radius: 5px;
             padding: 10px;
@@ -232,9 +273,17 @@
             text-align: center;
             
         }
-        
+        .fondo{
+            background-color: transparent !important;
+        }
 
-    
-    
+        .description{
+            padding-right:10px;
+        }
+
+        .description-noadmin{
+            margin-top:12px;
+            padding-right:10px;
+        }
     </style>
 </x-app-layout>

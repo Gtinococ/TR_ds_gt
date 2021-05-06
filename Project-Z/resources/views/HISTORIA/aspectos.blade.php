@@ -99,12 +99,12 @@
         }
 
         .container-text{
-            border: 2px solid #D3D3D3;
-            border-radius: 5px;
-            background-color: white;
             padding-left: 5px;
             padding-right: 10px;
-            background-color: rgba(243, 244, 246, var(--tw-bg-opacity)) !important; 
+            color:black;
+            border: 2px solid white;
+            border-radius: 3px;
+            background-color: rgba(135, 135, 135, 0.8) !important; 
         }
     </style>
 </x-app-layout>

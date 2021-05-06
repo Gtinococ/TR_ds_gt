@@ -27,10 +27,10 @@
                             <h3 class="name">{{$personaje->name}}</h3>
                             <div class="row">
                                 <div class="container-img col-md-5">
-                                    <img src="../{{$personaje->img}}"> 
+                                    <img src="../{{$personaje->img}}" alt="{{$personaje->name}}"> 
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="description col-md-6">
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                                 </div>
                             </div>
@@ -72,10 +72,24 @@
             border: 2px solid #D3D3D3;
             border-radius: 5px;
             background-color: white;
-            margin-left: 10px;
-            margin-right: 10px;
-            padding-left: 10px;
+            margin: 10px 10px 0px 10px;
             background-color: rgba(243, 244, 246, var(--tw-bg-opacity)) !important; 
+        }
+
+        .name{
+            font-weight: bold;
+            color: white !important;
+        }
+
+        .description{
+            border-radius: 5px;
+            background-color: white;
+            margin: 10px 10px 0px 10px;
+            padding-top: 10px;
+            color:black;
+            border: 2px solid white;
+            border-radius: 3px;
+            background-color: rgba(135, 135, 135, 0.8) !important; 
         }
 
     </style>

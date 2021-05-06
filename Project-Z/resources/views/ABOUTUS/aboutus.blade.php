@@ -5,22 +5,56 @@
         </h2>
     </x-slot>
     <header>
+        <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
     </header>
     <div class="row max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="fondo col-md-12 col-xs-12 bg-white overflow-hidden sm:rounded-lg">
             <div class="fondo p-6 bg-white border-gray-200">
                 <div class="admin-box">
-                    
+                    <div class="logro col-md-12">
+                        <div class="row">
+                            <img class="images col-md-6 col-lg-6 col-xl-6" src="{{URL::asset('images/logo_Project-Z.png')}}">
+                            <div  class="box col-md-6 col-lg-5 col-xl-5">
+                                <h2 class="titulo">¿Quienes somos?</h2>
+                                <p class="name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque, veniam, rerum error nostrum necessitatibus praesentium iure quidem deleniti libero ea beatae dolores sint fugit numquam ducimus expedita qui voluptatibus.</p>
+                                <p class="name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque, veniam, rerum error nostrum necessitatibus praesentium iure quidem deleniti libero ea beatae dolores sint fugit numquam ducimus expedita qui voluptatibus.</p>
+
+                            </div>                    
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <style>
+    
         .title{
             margin-left: 10px;
             margin-right: 10px
         }
+        
+        .titulo{
+            font-weight: bold;
+            color: white !important;
+            margin-top:30px; 
+        }
+
+        .name{
+            font-weight: bold;
+            color: white !important;
+            margin-top:30px;
+        }
+
         .admin-box{
             background-color: white;
             border: 1px solid #D3D3D3;
@@ -33,5 +67,64 @@
         .fondo{
             background-color: transparent !important;
         }
+
+        .logro {
+            background-color: rgba(157,0,179,0.7);
+            border: 2px solid #D3D3D3;
+            border-radius: 5px;
+            padding: 10px 10px 10px 15px;
+            margin-bottom: 30px;
+            box-shadow: 5px 5px 5px grey;
+
+        }
+
+        @media (min-width: 766px){
+            .box{
+                border-left:2px solid #C4C4C4
+            }
+        }
+
+        @media (max-width: 766px){
+            .titulo{
+                font-size: 30px;
+                text-align: center;
+            }
+
+            .box{
+                border-top:2px solid #C4C4C4;
+            }
+
+        }
+        
+        @media (max-width: 320px){
+            .titulo{
+                font-size: 24px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 360px){
+            .titulo{
+                font-size: 29px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width:850px) and (min-width:768px){
+            .images{
+                height:80%;
+                width:80%;
+                margin-top: 120px;
+            }
+        }
+
+        @media (max-width:321px) and (min-width:319px){
+            .titulo{
+                font-size: 24px;
+                text-align: center;
+            }
+        }
+
+
     </style>
 </x-app-layout>
