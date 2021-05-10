@@ -14,6 +14,7 @@ class Characters extends Model
     protected $fillable = [
         'id',
         'char_id',
-        'name'
+        'name',
+        'description'
     ];
 }

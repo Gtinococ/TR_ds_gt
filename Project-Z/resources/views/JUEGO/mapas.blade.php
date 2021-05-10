@@ -27,10 +27,10 @@
                         <div class="logro col-md-12">
                             <h3 class="name">{{$mapa->name}}</h3>
                             <div class="row">
-                                <div class=" col-md-5">
-                                    <img class="images" src="{{{URL::asset('images/fondo.jpg')}}}">
+                                <div class="col-md-5 col-11">
+                                    <img class="imagen" src="../{{$mapa->img}}" alt="{{$mapa->name}}"> 
                                 </div>
-                                <div class="description col-md-6">
+                                <div class="description col-md-6 col-11">
                                     <a>{{ $mapa->description }}</a><br>
                                 </div>
                             </div>
@@ -100,6 +100,7 @@
 
         .description{
             border-radius: 5px;
+            margin-left:10px;
             margin-top:10px;
             margin-right: 10px;
             padding-left: 10px;
@@ -110,11 +111,9 @@
             background-color: rgba(135, 135, 135, 0.8) !important; 
         }
 
-        .images{
-            height:200px;
-            width:700px;
-            border-radius:5px;
-            margin:10px;
+        .imagen{
+            min-height: 100%;
+            min-width: 100%;
         }
 
         @media (max-width: 376) and (min-width: 374){

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Achievements;
-use App\Models\RelationControl;
+use App\Models\Achievement;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -17,10 +17,9 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        $logros = Achievements::all();
-        $relations = RelationControl::all();
-        //dd($relation);
-        return view('/perfil', compact(['users','logros','relations']));
+        $logros = Achievement::all();
+        
+        return view('/perfil', compact(['users','logros']));
 
     }
 
@@ -72,7 +71,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('/edit', ['user'=>$user]);
+        return view('edit', ['user'=>$user]);
     }
 
     /**
@@ -87,12 +86,9 @@ class UserController extends Controller
         User::findOrFail($id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
-            /* 'file' => $request->file */
+            'password' => Hash::make($request->password),
 
         ]);
-        /* $imageName = time().'.'.$request->file->extension();
-        $request->file->move(public_path('images'), $imageName); */
         
         return redirect()->to('/perfil');
 

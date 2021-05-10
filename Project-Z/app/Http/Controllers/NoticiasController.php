@@ -26,7 +26,7 @@ class NoticiasController extends Controller
      */
     public function create()
     {
-        //
+        return view('NOTICIAS/addnoticia');
     }
 
     /**
@@ -37,7 +37,13 @@ class NoticiasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $noticia = Noticias::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'writer' => $request->writer
+        ]);
+
+        return redirect('noticias');
     }
 
     /**
@@ -57,9 +63,10 @@ class NoticiasController extends Controller
      * @param  \App\Models\Noticias  $noticias
      * @return \Illuminate\Http\Response
      */
-    public function edit(Noticias $noticias)
+    public function edit($id)
     {
-        //
+        $noticia = Noticias::find($id);
+        return view('editnoticia', ['noticia'=>$noticia]);
     }
 
     /**
@@ -69,9 +76,16 @@ class NoticiasController extends Controller
      * @param  \App\Models\Noticias  $noticias
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Noticias $noticias)
+    public function update(Request $request, $id)
     {
-        //
+        Noticias::findOrFail($id)->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'writer' => $request->writer
+
+        ]);
+        
+        return redirect()->to('/noticias');
     }
 
     /**
@@ -80,8 +94,12 @@ class NoticiasController extends Controller
      * @param  \App\Models\Noticias  $noticias
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Noticias $noticias)
+    public function destroy($id)
     {
-        //
+        $noticias = Noticias::find($id);
+        if ($noticias != null) {
+            $noticias->delete();
+            return redirect('noticias');
+        }
     }
 }

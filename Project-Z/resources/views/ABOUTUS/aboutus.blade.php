@@ -16,6 +16,9 @@
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-replace-svg></script>
+
     </header>
     <div class="row max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="fondo col-md-12 col-xs-12 bg-white overflow-hidden sm:rounded-lg">
@@ -26,9 +29,23 @@
                             <img class="images col-md-6 col-lg-6 col-xl-6" src="{{URL::asset('images/logo_Project-Z.png')}}">
                             <div  class="box col-md-6 col-lg-5 col-xl-5">
                                 <h2 class="titulo">¿Quienes somos?</h2>
-                                <p class="name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque, veniam, rerum error nostrum necessitatibus praesentium iure quidem deleniti libero ea beatae dolores sint fugit numquam ducimus expedita qui voluptatibus.</p>
-                                <p class="name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque, veniam, rerum error nostrum necessitatibus praesentium iure quidem deleniti libero ea beatae dolores sint fugit numquam ducimus expedita qui voluptatibus.</p>
+                                <h5 class="name">Somos un par de amigos que tienen pasión por los videojuegos</h5>
+                                <p class="name">Decidimos adentrarnos en este fastastico mundo empezando por hacer un videojuego y una página web relacionada, y este es el resultado</p>
+                                <div class="row name">
+                                    <div class="col-md-12">
+                                        <a>Nuestras redes sociales: </a>
+                                    </div>
+                                     
+                                    <div class="redes-box col-3 col-md-2">
+                                        <a href="https://www.instagram.com/"><img class="redes" src="{{URL::asset('images/social-media/inst-logo.png')}}" alt="Instagram"></a>
+                                    </div>
 
+                                    <div class="redes-box col-3 col-md-2">
+                                        <a href="https://twitter.com/"><img class="redes" src="{{URL::asset('images/social-media/twitter_logo.png')}}" alt="Twitter"></a>
+                                    </div>
+                                    
+                                    
+                                </div>
                             </div>                    
                         </div>
                     </div>
@@ -78,6 +95,18 @@
 
         }
 
+        .redes{
+            width: 30px;
+            height: 30px;
+            
+        }
+
+        .redes-box{
+            margin-top:10px;
+        }
+
+
+
         @media (min-width: 766px){
             .box{
                 border-left:2px solid #C4C4C4
@@ -92,6 +121,13 @@
 
             .box{
                 border-top:2px solid #C4C4C4;
+            }
+
+        }
+
+        @media (min-width: 770px){
+            .box{
+                padding-top:30px;
             }
 
         }

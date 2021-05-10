@@ -44,312 +44,235 @@
 
 </x-app-layout>
 
+    <style>
+        body{   
+            background-color: #C4C4C4;
+            font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+            margin:0px 0px 0px 0px;
+        }
 
-<!-- <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<header>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        /* Add a black background color to the top navigation */
+        .navbar {
+        background-color: #9D00B3;
+        overflow: hidden;
+        padding:0px 16px 0px 16px !important;
+        }
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        /* Style the links inside the navigation bar */
+        .navbar a {
+            float: right;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+        
+        }
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        /* Change the color of links on hover */
+        .navbar a:hover {
+            background-color: #4CAF50;
+            color: black;
+        }
 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    </header>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light ">
-            <img style="height:63px;width:63px;" src="{{URL::asset('images/logo_Project-Z.png')}}">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        /* Add a color to the active/current link */
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
 
-            <div class="login-delocos collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="offset-md-8 col-md-3 col-sm-9 col-9 login-continer">
-                    @if (Route::has('login'))
-                        <div class="">
-                            @auth
-                                <a href="{{ url('/juego') }}" class="login text-sm text-gray-700 underline">Pagina principal</a>
-                            @else
-                                <a href="{{ route('login') }}" class="login col-md-6 col-sm-12 col-xs-12 col-6 text-sm underline">Log in</a>
+        .bg-image {
+            /* The image used */
 
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="register col-md-6 col-sm-12 col-xs-12 col-6 text-sm underline">Registrarse</a>
-                                @endif
-                            @endauth
-                        </div>
-                    @endif
-                </div>
-            </div>
-        </nav>
-        <div clas="content-container">
-        <div style="position:relative;">
-            <img  clss="img" style="" src="images/fondo.jpg"  alt="Los Angeles" width="100%" height="100%">
-        </div>
-            <p style="text-align:center; color:grey; font-weight: bold; font-size:50px;">_____________________</p>
-            <p style="text-align:center; color:white; font-size:50px; font-weight: bold;">¿TE ATREVES?</p>
-            <p style="text-align:center; color:grey; font-size:50px; font-weight: bold;">¡¡REESCRIBE LA HISTORIA!!</p>
-        </div>
-        <footer class="footer text-center text-lg-start">
-            <div class="container1 p-4">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 mb-6 col-xs-12">
-                        <h5 class="text-uppercase">Contact Us</h5>
+            /* Add the blur effect */
+            filter: blur(3px);
+            -webkit-filter: blur(3px);
 
-                        <a class="contact">Contact: projectz.contact@gmail.com</a>
-                        </br>
-                        <a class="contact">Tel: 666 666 666</a>
-                    </div>
+            /* Full height */
+            height: 500px;
+            width:100%;
 
-                    <div class="col-lg-6 col-md-6 mb-6 col-xs-12">
-                        <h5 class="text-uppercase">Social Media</h5>
+            /* Center and scale the image nicely */
+            background-repeat:no-repeat;
+            background-position:center;
+        }
 
-                        <ul class="list-unstyled mb-0">
-                        <li>
-                            <a href="https://twitter.com/dokkanbattle_es?lang=ca"><img  clss="img" src="images/social-media/twitter_logo.png"  alt="Los Angeles" width="25px" height="25px"></a>
-                        </li>
-                        <li>
-                        <a href="https://www.instagram.com/"><img href="https://www.instagram.com/" clss="img" style="margin-top:10px;" src="images/social-media/inst-logo.png"  alt="Los Angeles" width="25px" height="25px"></a>
-                        </li>
-                        </ul>
-                    </div>
+        .fondo{
+            background-color: transparent !important;
+        }
 
-                </div>
-            </div>
-            <div class="cr-container p-3 text-light">
-                © 2020 Copyright:
-                <a class="text-light">Prozectz.com</a>
-            </div>
-        </footer>
-    </body> -->
-        <style>
-            body{   
-                background-color: #C4C4C4;
-                font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
-                margin:0px 0px 0px 0px;
-            }
+        .login-continer{
+            float:right;
+        }
 
-            /* Add a black background color to the top navigation */
-            .navbar {
-            background-color: #9D00B3;
-            overflow: hidden;
-            padding:0px 16px 0px 16px !important;
-            }
+        .logo{
+            float:left;
+            height:63px;
+            width:63px;
+        }
 
-            /* Style the links inside the navigation bar */
-            .navbar a {
-                float: right;
-                color: white;
-                text-align: center;
-                text-decoration: none;
-                font-size: 17px;
-                font-weight: bold;
+        .carousel-inner{
+            height:500px;
+        }
+
+        .carousel-item{
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #carouselExampleControls .d-block{
+            height:100%;
+            width:100%;
+            margin: auto auto auto auto;
+
+        }
+
+        #carousel-border{
+            height:525px;
+            width:1000px;
+            margin-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            position: absolute;
+            top: 40px; left: 13%;
+            border:5px solid white;
             
-            }
 
-            /* Change the color of links on hover */
-            .navbar a:hover {
-                background-color: #4CAF50;
-                color: black;
-            }
+        }
 
-            /* Add a color to the active/current link */
-            .topnav a.active {
-                background-color: #4CAF50;
-                color: white;
-            }
+        #carouselExampleControls{
+            background-color: rgba(0,0,0, 1);
+            margin-top:12px;
+            
+        }
 
-            .bg-image {
-                /* The image used */
+        .body-container{
+            background-color:grey;
+            height:525px;
+            
+        }
 
-                /* Add the blur effect */
-                filter: blur(3px);
-                -webkit-filter: blur(3px);
+        .info-container{
+            height:525px;
+            border:1px solid white;
+            border-top:none;
+            border-bottom:none;
+        }
 
-                /* Full height */
-                height: 500px;
-                width:100%;
-
-                /* Center and scale the image nicely */
-                background-repeat:no-repeat;
-                background-position:center;
-            }
-
-            .fondo{
-                background-color: transparent !important;
-            }
-
-            .login-continer{
-                float:right;
-            }
-
-            .logo{
-                float:left;
-                height:63px;
-                width:63px;
-            }
-
-            .carousel-inner{
-                height:500px;
-            }
-
-            .carousel-item{
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            #carouselExampleControls .d-block{
-                height:100%;
-                width:100%;
-                margin: auto auto auto auto;
-
-            }
-
-            #carousel-border{
-                height:525px;
-                width:1000px;
-                margin-top: 100px;
-                margin-left: auto;
-                margin-right: auto;
-                position: absolute;
-                top: 40px; left: 13%;
-                border:5px solid white;
-                
-
-            }
-
-            #carouselExampleControls{
-                background-color: rgba(0,0,0, 1);
-                margin-top:12px;
-                
-            }
-
-            .body-container{
-                background-color:grey;
-                height:525px;
-                
-            }
-
-            .info-container{
-                height:525px;
-                border:1px solid white;
-                border-top:none;
-                border-bottom:none;
-            }
-
-            .info{
-                margin-top:100px;
-                margin-bottom:100px;
-                border:2px solid white;
+        .info{
+            margin-top:100px;
+            margin-bottom:100px;
+            border:2px solid white;
 
 
-            }
+        }
 
-            .cr-container{
-                background-color:rgba(159, 0, 179, 1);
-                font-weight: bold;
-            }
+        .cr-container{
+            background-color:rgba(159, 0, 179, 1);
+            font-weight: bold;
+        }
 
-            .login{
-                padding-top: 20px;
-                padding-bottom: 20px;
+        .login{
+            padding-top: 20px;
+            padding-bottom: 20px;
 
-            }
+        }
 
-            .register{
-                padding-top: 20px;
-                padding-bottom: 20px;
-            }
+        .register{
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
 
-            .content-container{
-                margin-left:30%;
-            }
+        .content-container{
+            margin-left:30%;
+        }
 
-            .container1{
-                border-top: 2px solid white;
+        .container1{
+            border-top: 2px solid white;
 
-                background-color: black;
-                padding-left: 10px;
-                background-color: rgba(135, 135, 135, 0.8) !important; 
-            }
+            background-color: black;
+            padding-left: 10px;
+            background-color: rgba(135, 135, 135, 0.8) !important; 
+        }
 
-            .admin-box{
-                background-color: white;
-                border: 1px solid #D3D3D3;
-                border-radius: 5px;
-                padding: 10px;
-                box-shadow: 5px 5px 5px grey;
+        .admin-box{
+            background-color: white;
+            border: 1px solid #D3D3D3;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 5px 5px 5px grey;
 
-            }
+        }
 
-            .titulo{
-                text-align:center;
-                color: rgba(157,0,179,1);
-                font-family: "Arial Black", sans-serif;
-                letter-spacing: -1px;
-                text-shadow: 2px 0 0 white, -2px 0 0 white, 0 2px 0 white, 0 -2px 0 white, 1px 1px white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white;
-                background-color:  #D3D3D3;
-                border: 1px solid #D3D3D3;
-                border-radius: 10px;
-                box-shadow: 0px 5px 5px grey;
+        .titulo{
+            text-align:center;
+            color: rgba(157,0,179,1);
+            font-family: "Arial Black", sans-serif;
+            letter-spacing: -1px;
+            text-shadow: 2px 0 0 white, -2px 0 0 white, 0 2px 0 white, 0 -2px 0 white, 1px 1px white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white;
+            background-color:  #D3D3D3;
+            border: 1px solid #D3D3D3;
+            border-radius: 10px;
+            box-shadow: 0px 5px 5px grey;
 
-            }
+        }
 
-            .row-box{
-                margin:30px 0px 20px 0px;              
-            }
+        .row-box{
+            margin:30px 0px 20px 0px;              
+        }
 
-            .info-container{
-                background-color: rgba(157,0,179,0.7);
-                border: 2px solid #D3D3D3;
-                border-radius: 5px;
-                padding: 10px 10px 10px 15px;
-                margin-bottom: 30px;
-                box-shadow: 5px 5px 5px grey;
+        .info-container{
+            background-color: rgba(157,0,179,0.7);
+            border: 2px solid #D3D3D3;
+            border-radius: 5px;
+            padding: 10px 10px 10px 15px;
+            margin-bottom: 30px;
+            box-shadow: 5px 5px 5px grey;
 
-            }
+        }
 
+        .name1{
+            font-weight: bold;
+            color: white !important;
+            text-align: center;
+            font-size:50px;
+        }
+
+        .name2{
+            font-weight: bold;
+            color: white !important;
+            text-align: center;
+            font-size:70px;
+        }
+
+        .text{
+            position: absolute;
+            top:-280px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .caja{
+            position: relative;
+            text-align: center;
+        }
+
+        @media (max-width: 375px) {
             .name1{
                 font-weight: bold;
-                color: white !important;
+                color: transparent !important;
                 text-align: center;
-                font-size:50px;
             }
 
             .name2{
                 font-weight: bold;
-                color: white !important;
-                text-align: center;
-                font-size:70px;
-            }
-
-            .text{
-                position: absolute;
-                top:-280px;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-            .caja{
-                position: relative;
+                color: transparent !important;
                 text-align: center;
             }
+        }
 
-            @media (max-width: 375px) {
-                .name1{
-                    font-weight: bold;
-                    color: transparent !important;
-                    text-align: center;
-                }
-
-                .name2{
-                    font-weight: bold;
-                    color: transparent !important;
-                    text-align: center;
-                }
-            }
-
-            
+        
 
 
-        </style>
+    </style>
 
 </html>

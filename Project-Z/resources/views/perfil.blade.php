@@ -27,8 +27,7 @@
                         <div class="row">
                             <div class="container-img col-12 col-md-2 col-lg-2">
                                 @if(Auth::user()->img)
-                                <img style="height:63px;width:63px;margin-top:7px;margin-left:7p;border-radius:3px;" src="{{Auth::user()->img}}">
-                                            
+                                    <img style="height:63px;width:63px;margin-top:7px;margin-left:7p;border-radius:3px;" src="{{Auth::user()->img}}">
                                 @else
                                     <svg style="margin-top:7px;margin-left:7px;" class=" w-16 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -37,9 +36,7 @@
                             </div>
                             @if (Auth::user()->is_admin == 1)
                                 <div class="description col-12 col-md-5 col-lg-3">
-                                @foreach($relations as $relation)  
-                                    {{$relation->user_id}}
-                                @endforeach
+                                
                                     @if (Auth::user()->is_admin == 1)
                                         <a class="datos" >Nombre: {{ Auth::user()->name }}</a> <br>
                                         <a class="datos" >Correo: {{ Auth::user()->email }}</a> <br>
@@ -52,14 +49,14 @@
                                     <a class="datos" >Nombre: {{ Auth::user()->name }}</a> <br>
                                     <a class="datos" >Correo: {{ Auth::user()->email }}</a> <br>                                
                                 </div>
-
-                                                           
-                            @endif                            
+                   
+                            @endif          
+                                              
                             <div class="col-md-5 col-lg-7 col-xs-12 row box-logout">
                                 <div class="row">
                                     <form class="col-md-12 col-lg-4 col-sm-4" method="POST" action="{{ route('logout') }}">
                                         @csrf
-                                        <p >
+                                        <p>
                                             <x-button style="background-color:rgba(255, 0, 0, 0.7);" class="button-logout" :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
                                                 {{ __('Cerrar sesión') }}
                                             </x-button> 
@@ -83,11 +80,62 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                        
+                    </div>
+                    <h3>Tus logros</h3>
+                        @php
+                            $id = Auth::user()->id;
+                            $logros = false;
+                        @endphp
+                        @foreach (Auth::user()->myAchievements($id) as $logro)
+                            @php
+                                $logros = true;
+                            @endphp
+                            @if($logro->dificulty == 1)
+                                <div class=" col-md-1 dificulty">
+                                    <a>Fácil</a><br>
+                                </div>
+                                <div class="offset-md-11"></div>
+
+                            
+                            @elseif($logro->dificulty == 2)
+                                <div class=" col-md-1 dificulty">
+                                    <a>Difícl</a><br>
+                                </div>
+                                <div class="offset-md-11"></div>
+
+                            @elseif($logro->dificulty == 3)
+                                <div class=" col-md-1 dificulty">
+                                    <a>Imposible</a><br>
+                                </div>
+                                <div class="offset-md-11"></div>
+
+                            @endif
+                            <div class="logro col-md-12">
+
+                                <div class="container-img">
+                                    <img style="height:63px;width:63px;" src="{{$logro->img}}">
+                                </div>  
+                                <div class="" >
+                                    <a class="name">{{ $logro->name }}</a><br>
+                                    <div class="container-desc">
+                                        <a class="description ">{{ $logro->description }}</a><br>
+                                    </div>
+                                </div> 
+                                
+                            </div>
+                        @endforeach
+                        @if($logros == false)
+                        <div class="logro col-md-12">
+
+                        <h1 style="color:white;">Juega para conseguir logros</h1>
+
+                        </div>
+                        @endif  
+                        <br>                   
                     @if( Auth::user()->is_admin == 1)
                     <h3>Administrar usuarios</h3>
                         @if(Auth::user()->count())
-                            <div class="admin-box">
+                            <div class="">
                             @php
                                 $usuarios=false;
                             @endphp
@@ -102,7 +150,7 @@
                                             <a class="datos" >Nombre: {{$user->name}}</a> <br>
                                             <a class="datos" >Correo: {{$user->email}}</a> <br>
                                             <a class="datos" >Creación: {{$user->created_at}}</a> <br>
-                                            <a class="datos" >Última modificación: {{$user->updated_at}}</a> 
+                                            <a class="datos" >Última modificación: {{$user->updated_at}}</a>
                                             <br>
                                             @if($user->is_admin)
                                                 <a style="color:black;" class="datos">No puedes eliminar a otros usuarios que tengan el rol de administradores</a>
@@ -128,43 +176,6 @@
                         @endif
                         
                     @endif
-
-                    <h3>Tus logros</h3>
-                    @foreach ($logros as $logro)
-                        @if($logro->dificulty == 1)
-                            <div class=" col-md-1 dificulty">
-                                <a>Fácil</a><br>
-                            </div>
-                            <div class="offset-md-11"></div>
-
-                        
-                        @elseif($logro->dificulty == 2)
-                            <div class=" col-md-1 dificulty">
-                                <a>Difícl</a><br>
-                            </div>
-                            <div class="offset-md-11"></div>
-
-                        @elseif($logro->dificulty == 3)
-                            <div class=" col-md-1 dificulty">
-                                <a>Imposible</a><br>
-                            </div>
-                            <div class="offset-md-11"></div>
-
-                        @endif
-                        <div class="logro col-md-12">
-
-                            <div class="container-img">
-                                <img style="height:63px;width:63px;" src="{{$logro->img}}">
-                            </div>  
-                            <div class="" >
-                                <a class="name">{{ $logro->name }}</a><br>
-                                <div class="container-desc">
-                                    <a class="description ">{{ $logro->description }}</a><br>
-                                </div>
-                            </div> 
-                            
-                        </div>
-                    @endforeach
                 
                 </div>
                 

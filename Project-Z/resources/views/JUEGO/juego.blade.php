@@ -26,22 +26,22 @@
                     <div id="demo" class="carousel slide" data-ride="carousel">
 
                     <ul class="carousel-indicators">
-                        <li data-target="#demo" data-slide-to="0" class="active"></li>
-                        <li data-target="#demo" data-slide-to="1"></li>
-                        <li data-target="#demo" data-slide-to="2"></li>
+                        <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="1"></li>
+                        <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="2"></li>
                     </ul>
 
                     <div class="carousel-box container carousel-inner">
                         <div class="carousel-item active">
-                            <img style="border-radius:5px;" src="images/fondo.jpg"  alt="Los Angeles" width="1100" height="500">
+                            <img class="imagen-logo" src="images/logo_Project-Z.png" alt="Imagen logo">
                         </div>
 
                         <div class="carousel-item">
-                            <img style="border-radius:5px;" src="images/fondo.jpg" alt="Chicago" width="1100" height="500">
+                            <img class="imagen" src="images/maps/map1.png" alt="Imagen fondo">
                         </div>
 
                         <div class="carousel-item">
-                            <img style="border-radius:5px;" src="images/fondo.jpg" alt="New York" width="1100" height="500">
+                            <img class="imagen" src="images/maps/map2.png" alt="Imagen mapa">
                         </div>
                     </div>
 
@@ -85,7 +85,23 @@
             background-color: transparent !important;
         }
 
+        .imagen{
+            width:1100px;
+            height:500px;
+            border-radius:5px;
+            border: 1px solid #D3D3D3;
+
+        }
+
+        .imagen-logo{
+            width:1100px;
+            height:500px;
+            border-radius:5px;
+            padding-left: 270px;
+            padding-right: 270px;
+            border: 1px solid #D3D3D3;
         
+        }
         
     </style>
 </x-app-layout>

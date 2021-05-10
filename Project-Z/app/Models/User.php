@@ -6,11 +6,17 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\Achievements;
+
+use App\Models\Achievement;
+use App\Models\UserAchievement;
+
+use DB;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+
+
 
     public $timestamps=true;
     /**
@@ -48,9 +54,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /* public function achiev(){
+    public function achievements()
+    {
+        return $this->belongsToMany(Achievement::class,'user_achievement');
+    }
 
-        return $this->hasMany(Achievements::class); 
+    public function myAchievements($id){
 
-    } */
+        return DB::select('SELECT * FROM achievements INNER JOIN user_achievement ON user_achievement.achievement_id = achievements.id WHERE user_achievement.user_id = ?', [$id]);
+            
+    
+    }
+
 }

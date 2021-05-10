@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Models\Achievements;
+use App\Models\Achievement;
 
 class LogrosController extends Controller
 {
@@ -14,7 +14,7 @@ class LogrosController extends Controller
      */
     public function index()
     {
-        $logros = Achievements::orderBy('dificulty')->get();
+        $logros = Achievement::orderBy('dificulty')->get();
         return view('/JUEGO/logros', compact(['logros']));
     }
 
@@ -58,7 +58,8 @@ class LogrosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $logro = Achievement::find($id);
+        return view('editlogro', ['logro'=>$logro]);
     }
 
     /**
@@ -70,7 +71,15 @@ class LogrosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+   
+        Achievement::findOrFail($id)->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'dificulty' => $request->dificulty
+
+        ]);
+        
+        return redirect()->to('juego/logros');
     }
 
     /**
@@ -81,6 +90,8 @@ class LogrosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $logro = Achievement::find($id);
+        $logro->delete();
+        return redirect('logros');
     }
 }

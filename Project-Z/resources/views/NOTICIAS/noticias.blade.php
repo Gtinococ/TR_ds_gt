@@ -2,7 +2,6 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <a class="border-b-2 border-indigo-400">{{ __('NOTICIAS') }}</a>
-            <a class="title" href="{{ url('/noticias/notas-del-parche') }}">{{_('NOTAS DEL PARCHE')}}</a>
         </h2>
     </x-slot>
     <header>
@@ -38,6 +37,37 @@
                                     <a>Escrito por: {{ $noticia->writer }}</a><br>
                                 </div> 
                             </div>
+
+                            @if(Auth::user()->is_admin == 1)
+                            <div class="caja">
+                                <div class="row">
+                                    <p class="col-md-12 col-lg-2">
+                                        <x-button class="button-logout eliminar-user">
+                                            <a style="color:white" href="{{ route('create.noticia') }}">
+                                                {{ __('Añadir noticia') }}
+                                            </a>
+                                        </x-button>                
+                                    </p>
+
+                                    <p class="col-md-12 col-lg-2">
+                                        <x-button class="button-logout eliminar-user">
+                                            <a style="color:white" href="{{ 'noticias/edit-noticia/'.$noticia->id}}">
+                                                {{ __('Editar noticia') }}
+                                            </a>
+                                        </x-button>                
+                                    </p>
+
+                                    <p class="col-md-12 col-lg-2">
+                                        <x-button class="button-logout eliminar-user">
+                                            <a style="color:white" href="{{ 'noticias/'.$noticia->id}}">
+                                                {{ __('Borrar noticia') }}
+                                            </a>
+                                        </x-button>                
+                                    </p>
+                                </div>
+                            </div>
+                            @endif 
+                            
                         </div>
 
                     @endforeach
@@ -56,6 +86,10 @@
         .title{
             margin-left: 10px;
             margin-right: 10px
+        }
+
+        .caja{
+            margin-top:17px;
         }
 
         .name{

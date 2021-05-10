@@ -27,7 +27,7 @@
                             <h3 class="name">{{$weapon->name}}</h3>
 
                             <div class="container-img">
-                                <img style="height:auto;width:auto;" src="{{$weapon->img}}">
+                                <img class="imagen" src="{{$weapon->img}}">
                             </div>  
 
                             <div class="container-desc">
@@ -106,5 +106,11 @@
             border-radius: 3px;
             background-color: rgba(135, 135, 135, 0.8) !important; 
         }
+
+        .imagen{
+            min-height: 100%;
+            min-width: 100%;
+        }
+
     </style>
 </x-app-layout>

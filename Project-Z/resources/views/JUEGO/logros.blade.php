@@ -24,6 +24,8 @@
         <div class="fondo col-md-12 col-xs-12 bg-white overflow-hidden sm:rounded-lg">
             <div class="fondo p-6 bg-white border-gray-200">
                 <div class="admin-box">
+
+                    
                     @foreach ($logros as $logro)
                         @if($logro->dificulty == 1)
                             <div class=" col-md-1 dificulty">
@@ -50,11 +52,33 @@
                             <div class="container-img">
                                 <img style="height:63px;width:63px;" src="../{{$logro->img}}">
                             </div>  
-                            <div class="" >
+                            <div>
                                 <a class="name">{{ $logro->name }}</a><br>
                                 <div class="container-desc">
                                     <a class="description ">{{ $logro->description }}</a><br>
                                 </div>
+                                
+                                @if(Auth::user()->is_admin == 1)
+                                    <div class="caja">
+                                        <div class="row">
+                                                <p class="col-md-12 col-lg-2">
+                                                    <x-button class="button-logout eliminar-user">
+                                                        <a style="color:white" href="{{ 'edit-logro/'.$logro->id}}">
+                                                            {{ __('Editar logro') }}
+                                                        </a>
+                                                    </x-button>                
+                                                </p>
+
+                                                <p class="col-md-12 col-lg-6">
+                                                    <x-button class="button-logout eliminar-user">
+                                                        <a style="color:white" href="{{ 'logros/'.$logro->id}}">
+                                                            {{ __('Borrar logro') }}
+                                                        </a>
+                                                    </x-button>                
+                                                </p>
+                                            </div>
+                                    </div>
+                                @endif 
                             </div> 
                             
                         </div>
@@ -130,5 +154,10 @@
             margin-left: 10px;
             margin-right: 10px
         }
+
+        .caja{
+            margin-top:17px;
+        }
+
     </style>
 </x-app-layout>

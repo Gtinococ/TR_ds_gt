@@ -16,6 +16,7 @@ class Noticias extends Model
     protected $fillable = [
         'id',
         'name',
-        'descirption'
+        'description',
+        'writer',
     ];
 }

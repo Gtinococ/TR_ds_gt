@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="border-b border-gray-100" style="background-color:rgba(159, 0, 179, 1);">
+<nav x-data="{ open: false }" style="background-color:rgba(159, 0, 179, 1);">
     @if(Auth::user())
         <!-- Primary Navigation Menu -->
         <div class=" mx-auto px-4 sm:px-6 lg:px-8">
@@ -112,7 +112,7 @@
                 <div class="flex items-center px-4">
                     <div class="flex-shrink-0">
                         @if(Auth::user()->img)
-                            <img style="height:63px;width:63px;border-radius:3px;" src="{{Auth::user()->img}}">
+                            <img style="height:63px;width:63px;border-radius:3px;" src="{{{URL::asset(Auth::user()->img)}}}">
                         @else
                             <svg class=" w-16 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
