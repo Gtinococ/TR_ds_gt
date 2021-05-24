@@ -54,7 +54,7 @@
                                     <div class="row">
                                         <form class="col-md-12 col-lg-4 col-sm-4" method="POST" action="{{ route('logout') }}">
                                             @csrf
-                                            <p>
+                                            <p class="boton-perfil">
                                                 <x-button>
                                                     <a style="color:white" :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
                                                         {{ __('Cerrar sesión') }}
@@ -62,7 +62,7 @@
                                                 </x-button> 
                                             </p> 
                                         </form> 
-                                        <p class="col-md-12 col-lg-4  col-sm-4">
+                                        <p class="boton-perfil col-md-12 col-lg-4  col-sm-4">
                                             <x-button>
                                                 <a style="color:white" href="{{ 'perfil/upload/'.Auth::user()->id}}">
                                                     {{ __('Foto de perfil') }}
@@ -70,7 +70,7 @@
                                             </x-button>                
                                         </p>
 
-                                        <p class="col-md-12 col-lg-4 col-sm-4">
+                                        <p class="boton-perfil col-md-12 col-lg-4 col-sm-4">
                                             <x-button>
                                                 <a style="color:white" href="{{ 'perfil/edit/'.Auth::user()->id}}">
                                                     {{ __('Editar perfil') }}
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         
-                    <h3 class="name">Tus logros</h3>
+                        <h3 class="name">Tus logros</h3>
                         @php
                             $id = Auth::user()->id;
                             $logros = false;
@@ -154,7 +154,7 @@
                                             <a class="name" >Última modificación: {{$user->updated_at}}</a> <br>
                                             
                                             @if($user->is_admin)
-                                                <a class="admin">No puedes eliminar a otros usuarios que tengan el rol de administradores</a>
+                                                <a class="admin">No puedes eliminar a otros administradores</a>
                                             @else
                                                 <x-button style="margin-top:10px;">
                                                     <a style="color:white" href="{{ 'perfil/'.$user->id}}">
@@ -182,7 +182,29 @@
             </div>
 
         </div>
+    </div>
+    <footer class="footer page-footer font-small blue">
+
+        <div class="footer-name footer-copyright text-center py-3">
+            &copy; Copyright 2021, Proyect-Z
+        </div>
+
+    </footer>  
     <style>
+
+        .footer{
+            background-color: rgba(87,1,91,0.7);
+            border: 2px solid white;
+            box-shadow: 5px 5px 5px #404040;
+            
+        }
+
+        .footer-name{
+            font-weight: bold;
+            color: white !important;   
+        }
+
+
         .button-logout{
             background: #9D00B3;
             margin-left: 12px !important;
@@ -305,7 +327,7 @@
             background-repeat: repeat;
             background-color:black;
         }
-     
+        
 
         .description-noadmin{
             margin-top:12px;
@@ -316,6 +338,12 @@
             font-weight: bold;
             color: #FF4A4A !important;
 
+        }
+        
+        @media (max-width: 585px)  {
+            .boton-perfil{
+                margin-left: 15px;
+            }            
         }
     </style>
 </x-app-layout>

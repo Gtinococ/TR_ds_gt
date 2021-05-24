@@ -43,10 +43,26 @@
             </div>
         </div>
     </div>
+    <footer class="footer page-footer font-small blue">
 
+        <div class="footer-name footer-copyright text-center py-3">
+            &copy; Copyright 2021, Proyect-Z
+        </div>
 
-
+    </footer>  
     <style>
+
+        .footer{
+            background-color: rgba(87,1,91,0.7);
+            border: 2px solid white;
+            box-shadow: 5px 5px 5px #404040;
+            
+        }
+
+        .footer-name{
+            font-weight: bold;
+            color: white !important;   
+        }
     
 
         /* Add a black background color to the top navigation */
@@ -108,6 +124,10 @@
             top:-280px;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+
+        .titulo{
+            font-weight: bold;
         }
 
         @media (max-width:2560px) and (min-width:769px){

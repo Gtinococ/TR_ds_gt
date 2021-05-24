@@ -24,38 +24,68 @@
             <div class="p-6 border-gray-200">
                 <div class="admin-box">
                     <div class="logro">
-                        <div id="demo" class="carousel slide" data-ride="carousel">
-
-                        <ul class="carousel-indicators">
-                            <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="0"></li>
-                            <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="1" class="active"></li>
-                            <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="2"></li>
-
-                        </ul>
-
-                        <div class="carousel-box container carousel-inner">
-
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
                             <div class="carousel-item">
-                                <img class="imagen" src="images/maps/map-4.png" alt="Mapa 2">
+                                <img class="imagen d-block w-100" src="images/maps/map-4.png" alt="First slide">
                             </div>
 
                             <div class="carousel-item active">
-                                <img class="imagen" src="images/maps/map-playing.png" alt="Jugando">
+                                <img class="imagen d-block w-100" src="images/maps/map-playing.png" alt="Second slide">
                             </div>
 
                             <div class="carousel-item">
-                                <img class="imagen" src="images/maps/mapboss.png" alt="Mapa boss">
+                                <img class="imagen d-block w-100" src="images/maps/mapboss.png" alt="Third slide">
                             </div>
                         </div>
 
-                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#demo" data-slide="next">
-                            <span class="carousel-control-next-icon"></span>
+
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
                         </a>
-                        
                         </div>
+                        <!-- <div id="demo" class="carousel slide" data-ride="carousel">
+
+                            <ul class="carousel-indicators">
+                                <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="0"></li>
+                                <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="1" class="active"></li>
+                                <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="2"></li>
+
+                            </ul>
+
+                            <div class="carousel-box container carousel-inner">
+
+                                <div class="carousel-item">
+                                    <img class="imagen" src="images/maps/map-4.png" alt="Mapa 2">
+                                </div>
+
+                                <div class="carousel-item active">
+                                    <img class="imagen" src="images/maps/map-playing.png" alt="Jugando">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img class="imagen" src="images/maps/mapboss.png" alt="Mapa boss">
+                                </div>
+                            </div>
+
+                            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#demo" data-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        
+                        </div> -->
                         <a href="images/logo_Project-Z.png" class="descargar-juego btn btn-warning offset-2 col-8 offset-2 offset-sm-4 col-sm-4 offset-sm-4 offset-md-4 col-md-4 offset-md-4">DESCARGAR JUEGO</a> 
                     </div>
                     
@@ -64,7 +94,27 @@
         </div>
     </div>
     
+    <footer class="footer page-footer font-small blue">
+
+        <div class="footer-name footer-copyright text-center py-3">
+            &copy; Copyright 2021, Proyect-Z
+        </div>
+
+    </footer>  
     <style>
+
+        .footer{
+            background-color: rgba(87,1,91,0.7);
+            border: 2px solid white;
+            box-shadow: 5px 5px 5px #404040;
+            
+        }
+
+        .footer-name{
+            font-weight: bold;
+            color: white !important;   
+        }
+        
         .title{
             margin-left: 10px;
             margin-right: 10px
@@ -86,11 +136,10 @@
 
 
         .imagen{
-            width:1000px;
-            height:500px;
+
             border-radius:3px;
             border: 2px solid #D3D3D3;
-            margin-left: 13px;
+  
         }
 
         .imagen-logo{
