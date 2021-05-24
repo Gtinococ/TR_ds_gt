@@ -21,11 +21,17 @@
 
     </header>
     <div class="row max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="fondo col-md-12 col-xs-12 bg-white overflow-hidden sm:rounded-lg">
-            <div class="fondo p-6 bg-white border-gray-200">
+
+        <div class=" col-md-12 col-xs-12 overflow-hidden sm:rounded-lg">
+
+            <div class=" p-6 border-gray-200">
+
                 <div class="admin-box">
+
                     <div class="logro col-md-12">
+
                         <div class="row">
+                        
                             <img class="images col-md-6 col-lg-6 col-xl-6" src="{{URL::asset('images/logo_Project-Z.png')}}">
                             <div  class="box col-md-6 col-lg-5 col-xl-5">
                                 <h2 class="titulo">¿Quienes somos?</h2>
@@ -35,7 +41,7 @@
                                     <div class="col-md-12">
                                         <a>Nuestras redes sociales: </a>
                                     </div>
-                                     
+                                    
                                     <div class="redes-box col-3 col-md-2">
                                         <a href="https://www.instagram.com/"><img class="redes" src="{{URL::asset('images/social-media/inst-logo.png')}}" alt="Instagram"></a>
                                     </div>
@@ -73,25 +79,16 @@
         }
 
         .admin-box{
-            background-color: white;
-            border: 1px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 10px;
-            box-shadow: 5px 5px 5px grey;
+            padding: 20px 20px 20px 20px;
             margin-bottom: 30px;
-        }
-
-        .fondo{
-            background-color: transparent !important;
         }
 
         .logro {
-            background-color: rgba(157,0,179,0.7);
-            border: 2px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 10px 10px 10px 15px;
+            background-color: rgba(87,1,91,0.7);
+            border: 2px solid white;
+            padding: 10px 40px 30px 40px;
             margin-bottom: 30px;
-            box-shadow: 5px 5px 5px grey;
+            box-shadow: 5px 5px 5px #404040;
 
         }
 
@@ -105,7 +102,12 @@
             margin-top:10px;
         }
 
-
+        @media (max-width: 770px) and (min-width:767px){
+            .redes-box{
+                padding-right: 0px;
+                
+            }
+        }
 
         @media (min-width: 766px){
             .box{
@@ -121,6 +123,11 @@
 
             .box{
                 border-top:2px solid #C4C4C4;
+            }
+
+            .redes-box{
+                padding-right: 0px;
+                
             }
 
         }
@@ -157,7 +164,28 @@
         @media (max-width:321px) and (min-width:319px){
             .titulo{
                 font-size: 24px;
-                text-align: center;
+                text-align: left;
+            }
+            .redes-box{
+                padding-right: 0px;
+                
+            }
+        }
+
+        @media (max-width:280px){
+            .titulo{
+                font-size: 15px;
+                text-align: left;
+            }
+
+            .name{
+                font-size: 10px;
+
+            }
+
+            .redes-box{
+                padding: 0px;
+
             }
         }
 

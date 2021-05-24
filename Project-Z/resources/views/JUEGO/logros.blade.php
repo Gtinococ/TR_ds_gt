@@ -1,5 +1,4 @@
 <x-app-layout>
-    
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <a class="title" href="{{ url('/juego') }}">{{_('JUEGO')}}</a>
@@ -21,11 +20,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
     </header>
     <div class="row max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="fondo col-md-12 col-xs-12 bg-white overflow-hidden sm:rounded-lg">
-            <div class="fondo p-6 bg-white border-gray-200">
+        <div class="col-md-12 col-xs-12 overflow-hidden sm:rounded-lg">
+            <div class="p-6 border-gray-200">
                 <div class="admin-box">
-
-                    
                     @foreach ($logros as $logro)
                         @if($logro->dificulty == 1)
                             <div class=" col-md-1 dificulty">
@@ -61,22 +58,22 @@
                                 @if(Auth::user()->is_admin == 1)
                                     <div class="caja">
                                         <div class="row">
-                                                <p class="col-md-12 col-lg-2">
-                                                    <x-button class="button-logout eliminar-user">
-                                                        <a style="color:white" href="{{ 'edit-logro/'.$logro->id}}">
-                                                            {{ __('Editar logro') }}
-                                                        </a>
-                                                    </x-button>                
-                                                </p>
+                                            <p class="col-md-12 col-lg-12">
+                                                <x-button>
+                                                    <a style="color:white" href="{{ 'edit-logro/'.$logro->id}}">
+                                                        {{ __('Editar logro') }}
+                                                    </a>
+                                                </x-button>                
+                                            </p>
 
-                                                <p class="col-md-12 col-lg-6">
-                                                    <x-button class="button-logout eliminar-user">
-                                                        <a style="color:white" href="{{ 'logros/'.$logro->id}}">
-                                                            {{ __('Borrar logro') }}
-                                                        </a>
-                                                    </x-button>                
-                                                </p>
-                                            </div>
+                                            <p class="col-md-12 col-lg-12">
+                                                <x-button>
+                                                    <a style="color:white" href="{{ 'logros/'.$logro->id}}">
+                                                        {{ __('Borrar logro') }}
+                                                    </a>
+                                                </x-button>                
+                                            </p>
+                                        </div>
                                     </div>
                                 @endif 
                             </div> 
@@ -90,23 +87,20 @@
     <style>
 
         .logro {
-            background-color: rgba(157,0,179,0.7);
-            border: 2px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 10px 10px 10px 15px;
+            background-color: rgba(87,1,91,0.7);
+            border: 2px solid white;
+            padding: 30px 40px 10px 40px;
             margin-bottom: 30px;
-            box-shadow: 5px 5px 5px grey;
+            box-shadow: 5px 5px 5px #404040;
 
         }
 
         .dificulty{
-            font-weight: bold;
-            color: white !important;
-            background-color: rgba(157,0,179,0.7);
-            border: 2px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 5px 5px 5px 5px;
-            text-align: center;
+            background-color: rgba(87,1,91,0.7);
+            border: 2px solid white;
+            margin-bottom: 10px;
+            color:white;
+            box-shadow: 5px 5px 5px #404040;
             
         }
 
@@ -117,11 +111,11 @@
         }
 
         .container-desc{
-            border: 2px solid white;
-            border-radius: 3px;
-            background-color: black;
-            padding-left: 10px;
-            background-color: rgba(135, 135, 135, 0.8) !important; 
+            background-color: white;
+            margin: 10px 0px 0px 0px;
+            padding: 5px 0px 5px 10px;
+            color:white;
+            background-color: rgba(135, 135, 135, 0.5) !important; ; 
         }
 
         .img{
@@ -142,11 +136,7 @@
         }
 
         .admin-box{
-            background-color: white;
-            border: 1px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 10px;
-            box-shadow: 5px 5px 5px grey;
+            padding: 20px 20px 20px 20px;
             margin-bottom: 30px;
         }
  
@@ -157,6 +147,13 @@
 
         .caja{
             margin-top:17px;
+        }
+
+        main{
+
+            background-image: url("{{URL::asset('images/textura/texture.png')}}");
+            background-repeat: repeat;
+            background-color:black;
         }
 
     </style>

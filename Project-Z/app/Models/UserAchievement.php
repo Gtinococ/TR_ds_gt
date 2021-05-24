@@ -12,7 +12,9 @@ class UserAchievement extends Model
 {
     use HasFactory;
 
-    protected $table = 'users_achieves';
+    protected $table = 'user_achievement';
+
+    public $timestamps = false;
 
 
     protected $fillable = [
@@ -20,13 +22,13 @@ class UserAchievement extends Model
         'achievement_id',
     ];
 
-    public function user()
-    {
-        return $this->hasOne(User::class);
-    }
+    // public function user()
+    // {
+    //     return $this->hasOne(User::class);
+    // }
 
-    public function achievement()
-    {
-        return $this->hasOne(Achievement::class);
-    }
+    // public function achievement()
+    // {
+    //     return $this->hasOne(Achievement::class);
+    // }
 }

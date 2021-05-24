@@ -19,15 +19,15 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
     </header>
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="fondo col-md-12 col-xs-12 bg-white overflow-hidden sm:rounded-lg">
-            <div class="fondo p-6 bg-white border-b border-gray-200">
+    <div class="row max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="col-md-12 col-xs-12 overflow-hidden sm:rounded-lg">
+            <div class="p-6 border-gray-200">
                 <div class="admin-box">
                     @foreach ($mapas as $mapa)
                         <div class="logro col-md-12">
                             <h3 class="name">{{$mapa->name}}</h3>
                             <div class="row">
-                                <div class="col-md-5 col-11">
+                                <div class="imagen-box col-md-5 col-11">
                                     <img class="imagen" src="../{{$mapa->img}}" alt="{{$mapa->name}}"> 
                                 </div>
                                 <div class="description col-md-6 col-11">
@@ -44,12 +44,11 @@
     <style>
     
         .logro {
-            background-color: rgba(157,0,179,0.7);
-            border: 2px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 10px 10px 10px 15px;
+            background-color: rgba(87,1,91,0.7);
+            border: 2px solid white;
+            padding: 10px 20px 30px 20px;
             margin-bottom: 30px;
-            box-shadow: 5px 5px 5px grey;
+            box-shadow: 5px 5px 5px #404040;
 
         }
 
@@ -70,24 +69,12 @@
             float: left;
         }
 
-      
-        .admin-role{
-            background-color: #C4C4C4 ;
-            border: 1px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 10px 10px 10px 10px;
-            box-shadow: 5px 5px 5px grey;
-            margin: 10px 8px 25px 8px;
-        }
 
         .admin-box{
-            background-color: white;
-            border: 1px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 10px;
-            box-shadow: 5px 5px 5px grey;
+            padding: 20px 20px 20px 20px;
             margin-bottom: 30px;
         }
+
 
         .title{
             margin-left: 10px;
@@ -95,20 +82,15 @@
         }
 
         .fondo{
-            background-color: transparent !important;
+            background-image: url("{{URL::asset('images/textura/texture.png')}}");
         }
 
         .description{
-            border-radius: 5px;
-            margin-left:10px;
-            margin-top:10px;
-            margin-right: 10px;
-            padding-left: 10px;
-            margin-bottom:10px;
-            color:black;
-            border: 2px solid white;
-            border-radius: 3px;
-            background-color: rgba(135, 135, 135, 0.8) !important; 
+            margin-left: 10px;
+            padding: 8px 15px 8px 15px;
+            background-color: white;
+            color:white;
+            background-color: rgba(135, 135, 135, 0.5) !important; 
         }
 
         .imagen{
@@ -116,10 +98,77 @@
             min-width: 100%;
         }
 
-        @media (max-width: 376) and (min-width: 374){
+        .imagen-box{
+            margin-left:10px;
+        }
+
+        .logro {
+            background-color: rgba(87,1,91,0.7);
+            border: 2px solid white;
+            padding: 10px 20px 20px 20px;
+            margin-bottom: 30px;
+            box-shadow: 5px 5px 5px #404040; 
+
+        }
+
+        main{
+
+            background-color: transparent !important;            
+            background-repeat: repeat;
+            background-color:black;
+        }
+
+        @media (max-width: 540px) and (min-width: 500px){
             .description{
-                margin-right: 3px;
+                margin: 10px 15px 10px 10px;
+            }
+
+            .imagen-box{
+                margin-left: 0px;
+                padding-left: 9px;
             }
         }
+
+        @media (max-width: 425px) and (min-width: 361px){
+            .description{
+                margin: 10px 15px 10px 10px;
+                font-size: 14px;
+            }
+
+            .imagen-box{
+                margin-left: 0px;
+                padding-left: 9px;
+            }
+        }
+
+        @media (max-width: 360px) and (min-width: 319px){
+            .description{
+                margin: 10px 8px 10px 8px;
+            }
+
+            .imagen-box{
+                margin-left: 0px;
+                padding-left: 9px;
+            }
+        }
+
+        @media (max-width: 280px) and (min-width: 270px){
+            .description{
+                margin: 10px 15px 10px 8px;
+                font-size: 10px;
+            }
+
+            .imagen-box{
+                margin-left: 0px;
+                padding-left: 9px;
+            }
+        }
+
+        @media (min-width: 300px) and (max-width: 764px){
+            .logro{
+                padding-bottom: 8px;
+            }
+        }
+
 
 </x-app-layout>

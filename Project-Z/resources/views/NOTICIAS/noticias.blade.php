@@ -18,13 +18,17 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
     </header>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="fondo col-md-12 col-xs-12 bg-white overflow-hidden sm:rounded-lg">
-            <div class="fondo p-6 bg-white border-gray-200">
+        <div class="col-md-12 col-xs-12 overflow-hidden sm:rounded-lg">
+            <div class="p-6 border-gray-200">
                 <div class="admin-box">
                     @php
                         $news = false;
                     @endphp
-
+                    <x-button style="margin-bottom:20px;" class="button-logout eliminar-user">
+                        <a style="color:white" href="{{ route('createNoticia') }}">
+                            {{ __('Añadir noticia') }}
+                        </a>
+                    </x-button>   
                     @foreach ($noticias as $noticia)
                         @php
                             $news = true;
@@ -35,20 +39,13 @@
                                 <div class="description col-md-11 col-sm-11 col-11">
                                     <a>{{ $noticia->description }}</a><br><br>
                                     <a>Escrito por: {{ $noticia->writer }}</a><br>
+                                    <a>Publicación: {{ $noticia->created_at }}</a><br>
                                 </div> 
                             </div>
 
                             @if(Auth::user()->is_admin == 1)
                             <div class="caja">
                                 <div class="row">
-                                    <p class="col-md-12 col-lg-2">
-                                        <x-button class="button-logout eliminar-user">
-                                            <a style="color:white" href="{{ route('create.noticia') }}">
-                                                {{ __('Añadir noticia') }}
-                                            </a>
-                                        </x-button>                
-                                    </p>
-
                                     <p class="col-md-12 col-lg-2">
                                         <x-button class="button-logout eliminar-user">
                                             <a style="color:white" href="{{ 'noticias/edit-noticia/'.$noticia->id}}">
@@ -73,8 +70,13 @@
                     @endforeach
 
                     @if($news == false)
-                        <div class="admin-role">
-                            <h1>No hay noticias disponibles</h1>
+                        <div class="logro col-md-12">
+                            <h3 class="name">No hay noticias disponibles</h3>
+                            <div class="row">
+                                <div class="description col-md-11 col-sm-11 col-11">
+                                    <a>Aún no se ha añadido ninguna noticia, vuelve mas tarde</a>
+                                </div>
+                            </div>
                         </div>
                     @endif
                 </div>
@@ -98,11 +100,7 @@
         }
 
         .admin-box{
-            background-color: white;
-            border: 1px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 10px;
-            box-shadow: 5px 5px 5px grey;
+            padding: 20px 20px 20px 20px;
             margin-bottom: 30px;
         }
         .admin-role{
@@ -117,31 +115,28 @@
 
         }
 
-        .fondo{
-            background-color: transparent !important;
-        }
-
         .logro {
-            background-color: rgba(157,0,179,0.7);
-            border: 2px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 10px 10px 10px 15px;
+            background-color: rgba(87,1,91,0.7);
+            border: 2px solid white;
+            padding: 10px 20px 20px 20px;
             margin-bottom: 30px;
-            box-shadow: 5px 5px 5px grey;
+            box-shadow: 5px 5px 5px #404040;
 
         }
 
         .description{
-            border-radius: 5px;
-            margin-top:10px;
-            margin-left: 10px;
-            margin-right: 10px;
-            padding-left: 10px;
-            padding-top: 5px;
-            color:black;
-            border: 2px solid white;
-            border-radius: 3px;
-            background-color: rgba(135, 135, 135, 0.8) !important; 
+            background-color: white;
+            margin: 10px 10px 0px 10px;
+            padding-top: 10px;
+            padding-bottom:10px;
+            color:white;
+            background-color: rgba(135, 135, 135, 0.5) !important; 
+        }
+
+        main{
+            background-color: transparent !important;
+            background-repeat: repeat;
+            background-color:black;
         }
 
         @media (min-width: 330px) and (max-width: 360px){

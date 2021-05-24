@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LogroAuthController;
+use App\Http\Controllers\ScoreboardAuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +18,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::group([
+    'prefix' => 'auth'
+], function () {
+    Route::post('login', [AuthController::class,'login']);
+    Route::post('signup', [AuthController::class,'signUp']);
+
+    Route::group([
+      'middleware' => 'auth:api'
+    ], function() {
+        Route::get('logout', [AuthController::class,'logout']);
+        Route::get('user', [AuthController::class,'user']);
+    });
+});
+
+Route::group([
+    'prefix' => 'game',
+    'middleware' => 'auth:api'
+], function () {
+    Route::get('logro/user', [LogroAuthController::class,'logro_get']);
+    Route::post('logro/post', [LogroAuthController::class,'logro_post']);
+    Route::get('score/users', [ScoreboardAuthController::class,'score_get']);
+    Route::post('score/post', [ScoreboardAuthController::class,'score_post']);
 });

@@ -19,18 +19,18 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
     </header>
     <div class="coso row max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="fondo col-md-12 col-xs-12 bg-white overflow-hidden sm:rounded-lg">
-            <div class="fondo p-6 bg-white border-gray-200">
+        <div class="fondo col-md-12 col-xs-12  overflow-hidden sm:rounded-lg">
+            <div class="fondo p-6 border-gray-200">
                 <div class="admin-box">
                     @foreach($personajes as $personaje)
                         <div class="logro col-md-12">
                             <h3 class="name">{{$personaje->name}}</h3>
                             <div class="row">
-                                <div class="container-img col-md-3">
+                                <div class="container-img col-md-4 col-lg-3">
                                     <img class="imagen" src="../{{$personaje->img}}" alt="{{$personaje->name}}"> 
                                 </div>
 
-                                <div class="description col-md-8">
+                                <div class="description col-md-11 col-lg-8">
                                     <p>{{$personaje->description}}</p>
                                 </div>
                             </div>
@@ -46,34 +46,26 @@
             margin-right: 10px
         }
         .admin-box{
-            background: #4CAF50;
-            border: 2px solid #00FF0A;
-            border-radius: 2px;
-            padding: 10px;
+            padding: 20px 20px 20px 20px;
             margin-bottom: 30px;
         }
 
         .fondo{
-            background-color: transparent !important;
+
         }
 
         .logro {
-            background-color: rgba(87,1,91,0.9);
-            border: 3px solid #00FF0A;
-            border-radius: 5px;
-            padding: 10px 10px 10px 15px;
+            background-color: rgba(87,1,91,0.7);
+            border: 2px solid white;
+            padding: 10px 20px 17px 20px;
             margin-bottom: 30px;
             box-shadow: 5px 5px 5px #404040;
 
         }
 
         .container-img{
-            border: 2px solid #D3D3D3;
-            border-radius: 5px;
-            background-color: white;
             margin: 10px 10px 0px 10px;
-            background-color: rgba(243, 244, 246, var(--tw-bg-opacity)) !important;
-            border: 2px solid #00FF0A;
+            background-color: rgba(255,255,255, 0.2) !important;
         }
 
         .name{
@@ -82,14 +74,11 @@
         }
 
         .description{
-            border-radius: 5px;
             background-color: white;
             margin: 10px 10px 0px 10px;
             padding-top: 10px;
-            color:black;
-            border: 2px solid white;
-            border-radius: 3px;
-            background-color: rgba(135, 135, 135, 0.8) !important; 
+            color:white;
+            background-color: rgba(135, 135, 135, 0.5) !important; 
         }
 
         .imagen{
@@ -100,9 +89,16 @@
         
         main{
 
-            background: rgba(159, 0, 179, 1);
+            background-image: url("{{URL::asset('images/textura/texture.png')}}");
+            background-repeat: repeat;
+            background-color:black;
         }
-        
+
+        @media (min-width: ) and (max-width:){
+            .container-img{
+                
+            }
+        }
 
 
     </style>

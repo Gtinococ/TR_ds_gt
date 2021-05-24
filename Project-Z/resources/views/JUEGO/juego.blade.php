@@ -19,41 +19,46 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
     </header>
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="fondo col-md-12 col-xs-12 bg-white overflow-hidden sm:rounded-lg">
-            <div class="fondo p-6 bg-white border-b border-gray-200">
+    <div class="row max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="col-md-12 col-xs-12 overflow-hidden sm:rounded-lg">
+            <div class="p-6 border-gray-200">
                 <div class="admin-box">
-                    <div id="demo" class="carousel slide" data-ride="carousel">
+                    <div class="logro">
+                        <div id="demo" class="carousel slide" data-ride="carousel">
 
-                    <ul class="carousel-indicators">
-                        <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="0" class="active"></li>
-                        <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="1"></li>
-                        <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="2"></li>
-                    </ul>
+                        <ul class="carousel-indicators">
+                            <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="0"></li>
+                            <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="1" class="active"></li>
+                            <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="2"></li>
 
-                    <div class="carousel-box container carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="imagen-logo" src="images/logo_Project-Z.png" alt="Imagen logo">
+                        </ul>
+
+                        <div class="carousel-box container carousel-inner">
+
+                            <div class="carousel-item">
+                                <img class="imagen" src="images/maps/map-4.png" alt="Mapa 2">
+                            </div>
+
+                            <div class="carousel-item active">
+                                <img class="imagen" src="images/maps/map-playing.png" alt="Jugando">
+                            </div>
+
+                            <div class="carousel-item">
+                                <img class="imagen" src="images/maps/mapboss.png" alt="Mapa boss">
+                            </div>
                         </div>
 
-                        <div class="carousel-item">
-                            <img class="imagen" src="images/maps/map1.png" alt="Imagen fondo">
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                        
                         </div>
-
-                        <div class="carousel-item">
-                            <img class="imagen" src="images/maps/map2.png" alt="Imagen mapa">
-                        </div>
+                        <a href="images/logo_Project-Z.png" class="descargar-juego btn btn-warning offset-2 col-8 offset-2 offset-sm-4 col-sm-4 offset-sm-4 offset-md-4 col-md-4 offset-md-4">DESCARGAR JUEGO</a> 
                     </div>
-
-                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#demo" data-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </a>
                     
-                    </div>
-                    <button type="button" class="descargar-juego btn btn-warning offset-2 col-8 offset-2 offset-sm-4 col-sm-4 offset-sm-4 offset-md-4 col-md-4 offset-md-4">DESCARGAR JUEGO</button>
                 </div>
             </div>
         </div>
@@ -66,42 +71,85 @@
         }
 
         .admin-box{
-            background-color: white;
-            border: 1px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 10px;
-            box-shadow: 5px 5px 5px grey;
+            padding: 20px 20px 20px 20px;
             margin-bottom: 30px;
         }
+
         .descargar-juego{
             border: 1px solid #D3D3D3;
             border-radius: 5px;
             padding: 10px 10px 10px 10px;
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 30px;
         }
 
-        .fondo{
-            background-color: transparent !important;
-        }
+
 
         .imagen{
-            width:1100px;
+            width:1000px;
             height:500px;
-            border-radius:5px;
-            border: 1px solid #D3D3D3;
-
+            border-radius:3px;
+            border: 2px solid #D3D3D3;
+            margin-left: 13px;
         }
 
         .imagen-logo{
-            width:1100px;
+            width:900px;
             height:500px;
-            border-radius:5px;
-            padding-left: 270px;
-            padding-right: 270px;
-            border: 1px solid #D3D3D3;
-        
+            padding-left: 200px;
+            padding-right: 200px;
+            border-radius:3px;
         }
+        main{
+            background-repeat: repeat;
+            background-color:black;
+            background-color: transparent !important;
+        }
+
+        .logro {
+            background-color: rgba(87,1,91,0.7);
+            border: 2px solid white;
+            padding: 30px 20px 20px 20px;
+            margin-bottom: 30px;
+            box-shadow: 5px 5px 5px #404040; 
+
+        }
+
+
+
+        /* @media (min-width:374px) and (max-width:375px){
+            .imagen-logo{
+                height: 50%;
+                width: 50%;
+            }
+
+            .imagen{
+                min-height: 100%;
+                min-width: 100%;
+            }
+        }
+
+        @media (min-width:1270px) and (max-width:1400px){
+            .imagen-logo{
+                min-height: 100%;
+                min-width: 100%;
+            }
+
+            .imagen{
+                min-height: 100%;
+                min-width: 100%;
+            }
+        }
+
+        @media (min-width:767px) and (max-width:768px){
+            .imagen-logo{
+                height: 50%;
+                width: 50%;
+                padding-left: 120px;
+            }
+
+        }        */
+
         
     </style>
 </x-app-layout>

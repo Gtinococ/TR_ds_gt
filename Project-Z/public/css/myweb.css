@@ -1,0 +1,10 @@
+.shadow{
+    border: 2px solid #00FF0A;
+    background: #4CAF50;
+}
+
+.fondo{
+    background-image: url("../images/textura/texture.png");
+    background-repeat: repeat;
+    background-color:black !important;
+}

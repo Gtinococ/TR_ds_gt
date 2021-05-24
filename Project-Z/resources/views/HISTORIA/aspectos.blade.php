@@ -18,24 +18,27 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
     </header>
     <div class="row max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="fondo col-md-12 col-xs-12 bg-white overflow-hidden sm:rounded-lg">
-            <div class="fondo p-6 bg-white border-gray-200">
+
+        <div class="col-md-12 col-xs-12 overflow-hidden sm:rounded-lg">
+
+            <div class="p-6 border-gray-200">
+
                 <div class="admin-box">
-                
-                    @foreach($weapons as $weapon)
-                        <div class="logro col-md-12">
-                            <h3 class="name">{{$weapon->name}}</h3>
 
-                            <div class="container-img">
-                                <img class="imagen" src="{{$weapon->img}}">
-                            </div>  
+                @foreach($weapons as $weapon)
+                    <div class="logro col-md-12">
+                        <h3 class="name">{{$weapon->name}}</h3>
 
-                            <div class="container-desc">
-                                <label style="color:white;font-weight: bold;" >Daño: </label> <a class="container-text">{{$weapon->damage}}</a><br>
-                            </div>
-                           
+                        <div class="container-img">
+                            <img class="imagen" src="{{$weapon->img}}">
+                        </div>  
+
+                        <div class="container-desc">
+                            <label style="color:white;font-weight: bold;" >Daño: </label> <a class="container-text">{{$weapon->damage}}</a><br>
                         </div>
-                    @endforeach
+                    
+                    </div>
+                @endforeach
                 </div>
             </div>
         </div>
@@ -47,11 +50,7 @@
         }
   
         .admin-box{
-            background-color: white;
-            border: 1px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 10px;
-            box-shadow: 5px 5px 5px grey;
+            padding: 20px 20px 20px 20px;
             margin-bottom: 30px;
         }
 
@@ -60,25 +59,14 @@
         }
 
         .logro {
-            background-color: rgba(157,0,179,0.7);
-            border: 2px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 10px 10px 10px 15px;
+            background-color: rgba(87,1,91,0.7);
+            border: 2px solid white;
+            padding: 10px 20px 20px 20px;
             margin-bottom: 30px;
-            box-shadow: 5px 5px 5px grey;
+            box-shadow: 5px 5px 5px #404040; 
 
         }
 
-        .dificulty{
-            font-weight: bold;
-            color: white !important;
-            background-color: rgba(157,0,179,0.7);
-            border: 2px solid #D3D3D3;
-            border-radius: 5px;
-            padding: 5px 5px 5px 5px;
-            text-align: center;
-            
-        }
 
         .name{
             font-weight: bold;
@@ -86,31 +74,37 @@
         }
 
         .container-img{
-            border: 2px solid #D3D3D3;
-            border-radius: 5px;
-            background-color: white;
-            padding-left: 10px;
-            background-color: rgba(243, 244, 246, var(--tw-bg-opacity)) !important; 
+            margin: 10px 10px 0px 0px;
+            background-color: rgba(255,255,255, 0.2) !important;
         }
 
         .container-desc{
-            margin-top: 15px;
-            border-radius: 5px;
+            background-color: white;
+            margin: 10px 10px 0px 0px;
+            padding-top: 10px;
+            padding-left:10px;
+            color:white;
+            background-color: rgba(135, 135, 135, 0.5) !important; 
         }
 
         .container-text{
             padding-left: 5px;
             padding-right: 10px;
             color:black;
-            border: 2px solid white;
-            border-radius: 3px;
-            background-color: rgba(135, 135, 135, 0.8) !important; 
         }
 
         .imagen{
             min-height: 100%;
             min-width: 100%;
         }
+
+        main{
+
+            background-image: url("{{URL::asset('images/textura/texture.png')}}");
+            background-repeat: repeat;
+            background-color:black;
+        }
+
 
     </style>
 </x-app-layout>

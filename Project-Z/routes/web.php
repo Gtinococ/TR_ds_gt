@@ -63,9 +63,9 @@ Route::get('/noticias/notas-del-parche', function () {
     return view('/NOTICIAS/notas');
 })->middleware(['auth'])->name('notas');
 
-Route::get('/noticias/{id}',[NoticiasController::class, 'destroy'])->middleware(['auth'])->name('destroy');
+Route::get('/noticias/upload-noticia',[NoticiasController::class, 'create'])->middleware(['auth'])->name('createNoticia');
 
-Route::get('/noticias/upload-noticia',[NoticiasController::class, 'create'])->middleware(['auth'])->name('create.noticia');
+Route::get('/noticias/{id}',[NoticiasController::class, 'destroy'])->middleware(['auth'])->name('destroy');
 
 Route::post('/noticias/new-noticia',[NoticiasController::class, 'store'])->middleware(['auth'])->name('store');
 
