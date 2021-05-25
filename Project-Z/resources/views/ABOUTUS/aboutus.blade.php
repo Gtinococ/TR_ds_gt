@@ -62,7 +62,7 @@
     <footer class="footer page-footer font-small blue">
 
         <div class="footer-name footer-copyright text-center py-3">
-            &copy; Copyright 2021, Proyect-Z
+            &copy; Copyright 2021, Project-Z
         </div>
 
     </footer>   
@@ -119,6 +119,13 @@
 
         .redes-box{
             margin-top:10px;
+        }
+
+        @media (max-width: 2600px) and (min-width:1800px){
+            .footer{
+                margin-top: 149px;
+                
+            }
         }
 
         @media (max-width: 770px) and (min-width:767px){
@@ -207,6 +214,31 @@
 
             }
         }
+
+        @media (max-width: 780px) and (min-width: 760px){
+            .footer{
+                margin-top:170px;            
+            }
+        }
+
+        @media (max-width: 1050px) and (min-width: 1000px){
+            .footer{
+                margin-top:550px;            
+            }
+        }
+
+        @media (max-width: 1450px) and (min-width: 1200px){
+            .footer{
+                margin-top:190px;            
+            }
+        }
+
+        @media (max-width: 3500px) and (min-width: 1800px){
+            .footer{
+                margin-top:190px;            
+            }
+        }
+
 
 
     </style>

@@ -40,7 +40,7 @@
                             </div>
 
                             <div class="carousel-item">
-                                <img class="imagen d-block w-100" src="images/maps/mapboss.png" alt="Third slide">
+                                <img class="imagen d-block w-100" src="images/maps/map1.png" alt="Third slide">
                             </div>
                         </div>
 
@@ -54,38 +54,6 @@
                             <span class="sr-only">Next</span>
                         </a>
                         </div>
-                        <!-- <div id="demo" class="carousel slide" data-ride="carousel">
-
-                            <ul class="carousel-indicators">
-                                <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="0"></li>
-                                <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="1" class="active"></li>
-                                <li style="background-color:#A70DCD" data-target="#demo" data-slide-to="2"></li>
-
-                            </ul>
-
-                            <div class="carousel-box container carousel-inner">
-
-                                <div class="carousel-item">
-                                    <img class="imagen" src="images/maps/map-4.png" alt="Mapa 2">
-                                </div>
-
-                                <div class="carousel-item active">
-                                    <img class="imagen" src="images/maps/map-playing.png" alt="Jugando">
-                                </div>
-
-                                <div class="carousel-item">
-                                    <img class="imagen" src="images/maps/mapboss.png" alt="Mapa boss">
-                                </div>
-                            </div>
-
-                            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </a>
-                            <a class="carousel-control-next" href="#demo" data-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </a>
-                        
-                        </div> -->
                         <a href="images/logo_Project-Z.png" class="descargar-juego btn btn-warning offset-2 col-8 offset-2 offset-sm-4 col-sm-4 offset-sm-4 offset-md-4 col-md-4 offset-md-4">DESCARGAR JUEGO</a> 
                     </div>
                     
@@ -97,13 +65,14 @@
     <footer class="footer page-footer font-small blue">
 
         <div class="footer-name footer-copyright text-center py-3">
-            &copy; Copyright 2021, Proyect-Z
+            &copy; Copyright 2021, Project-Z
         </div>
 
     </footer>  
     <style>
 
         .footer{
+            margin-top:50px;
             background-color: rgba(87,1,91,0.7);
             border: 2px solid white;
             box-shadow: 5px 5px 5px #404040;
@@ -166,38 +135,37 @@
 
 
 
-        /* @media (min-width:374px) and (max-width:375px){
-            .imagen-logo{
-                height: 50%;
-                width: 50%;
-            }
-
-            .imagen{
-                min-height: 100%;
-                min-width: 100%;
+        @media (max-width: 420px) and (min-width: 400px){
+            .footer{
+                margin-top:200px;
             }
         }
 
-        @media (min-width:1270px) and (max-width:1400px){
-            .imagen-logo{
-                min-height: 100%;
-                min-width: 100%;
-            }
-
-            .imagen{
-                min-height: 100%;
-                min-width: 100%;
+        @media (max-width: 380px) and (min-width: 370px){
+            .footer{
+                margin-top:200px;
             }
         }
 
-        @media (min-width:767px) and (max-width:768px){
-            .imagen-logo{
-                height: 50%;
-                width: 50%;
-                padding-left: 120px;
+        @media (max-width: 770px) and (min-width: 760px){
+            .footer{
+                margin-top:280px;
             }
+        }
 
-        }        */
+        @media (max-width: 1200px) and (min-width: 1000px){
+            .footer{
+                margin-top:500px;
+            }
+        }
+
+        @media (max-width: 2600px) and (min-width: 1440px){
+            .footer{
+                margin-top:100px;
+            }
+        }
+
+    
 
         
     </style>

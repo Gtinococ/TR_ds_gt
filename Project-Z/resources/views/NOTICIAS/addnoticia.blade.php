@@ -21,11 +21,6 @@
                 <textarea id="description" class="block mt-1 w-full" type="text" name="description" rows="10"></textarea>
             </div>
 
-            <div class="mt-4">
-                <x-label for="writer" :value="__('Escrito por')" />
-                <x-input id="writer" class="block mt-1 w-full" type="text" name="writer"  required />
-            </div>
-
             <div class="flex items-center justify-end mt-4">
                 <x-button style="background: #9D00B3" class="ml-4">
                     {{ __('Añadir') }}

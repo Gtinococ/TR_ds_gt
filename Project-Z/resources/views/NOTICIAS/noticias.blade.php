@@ -86,7 +86,7 @@
     <footer class="footer page-footer font-small blue">
 
         <div class="footer-name footer-copyright text-center py-3">
-            &copy; Copyright 2021, Proyect-Z
+            &copy; Copyright 2021, Project-Z
         </div>
 
     </footer>  

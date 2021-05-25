@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Noticias;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class NoticiasController extends Controller
 {
@@ -40,7 +41,7 @@ class NoticiasController extends Controller
         $noticia = Noticias::create([
             'name' => $request->name,
             'description' => $request->description,
-            'writer' => $request->writer
+            'writer' => Auth::user()->name
         ]);
 
         return redirect('noticias');
@@ -81,7 +82,7 @@ class NoticiasController extends Controller
         Noticias::findOrFail($id)->update([
             'name' => $request->name,
             'description' => $request->description,
-            'writer' => $request->writer
+            'writer' => Auth::user()->name
 
         ]);
         

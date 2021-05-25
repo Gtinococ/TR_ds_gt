@@ -127,9 +127,9 @@
                         @endforeach
                         @if($logros == false)
                         <div class="logro col-md-12">
-
-                        <h1 style="color:white;">Juega para conseguir logros</h1>
-
+                            <div class="row">
+                                <h4 style="color:white;">Juega para conseguir logros</h4>
+                            </div>
                         </div>
                         @endif  
                         <br>                   
@@ -186,7 +186,7 @@
     <footer class="footer page-footer font-small blue">
 
         <div class="footer-name footer-copyright text-center py-3">
-            &copy; Copyright 2021, Proyect-Z
+            &copy; Copyright 2021, Project-Z
         </div>
 
     </footer>  
@@ -286,7 +286,7 @@
         .logro {
             background-color: rgba(87,1,91,0.7);
             border: 2px solid white;
-            padding: 30px 40px 10px 40px;
+            padding: 10px 40px 0px 40px;
             margin-bottom: 30px;
             box-shadow: 5px 5px 5px #404040;
 

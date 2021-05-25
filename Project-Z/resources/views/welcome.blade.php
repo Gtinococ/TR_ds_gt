@@ -46,13 +46,14 @@
     <footer class="footer page-footer font-small blue">
 
         <div class="footer-name footer-copyright text-center py-3">
-            &copy; Copyright 2021, Proyect-Z
+            &copy; Copyright 2021, Project-Z
         </div>
 
     </footer>  
     <style>
 
         .footer{
+        
             background-color: rgba(87,1,91,0.7);
             border: 2px solid white;
             box-shadow: 5px 5px 5px #404040;
@@ -168,6 +169,42 @@
                 margin-top: 30px;
             }   
 
+        }
+
+        @media (max-width: 420px) and (min-width: 400px){
+            .footer{
+                margin-top: 100px;
+            }
+        }
+
+        @media (max-width: 380px) and (min-width: 360px){
+            .footer{
+                margin-top: 70px;
+            }
+        }
+
+        @media (max-width: 1440px) and (min-width: 1024px){
+            .footer{
+                margin-top: 370px;
+            }
+        }
+
+        @media (max-width: 1023px) and (min-width: 765px){
+            .footer{
+                margin-top: 409px;
+            }
+        }
+
+        @media (max-width: 1800px) and (min-width: 1400px){
+            .footer{
+                margin-top:264px;
+            }
+        }
+
+        @media (max-width: 2600px) and (min-width: 1800px){
+            .footer{
+                margin-top:270px;            
+            }
         }
 
 
