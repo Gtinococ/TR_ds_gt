@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Achievement;
 use Illuminate\Support\Facades\Hash;
+use App\Models\UserAchievement;
+
 
 class UserController extends Controller
 {
@@ -106,8 +108,14 @@ class UserController extends Controller
     {
         $user = User::find($id);
         if ($user != null) {
+            $logros = UserAchievement::where('user_id', $id)->get();
+            foreach($logros as $logro){
+                $logro->delete();
+            }
+
             $user->delete();
             return redirect('perfil');
+
         }
         
     }

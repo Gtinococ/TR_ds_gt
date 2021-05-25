@@ -54,7 +54,8 @@
                             <span class="sr-only">Next</span>
                         </a>
                         </div>
-                        <a href="images/logo_Project-Z.png" class="descargar-juego btn btn-warning offset-2 col-8 offset-2 offset-sm-4 col-sm-4 offset-sm-4 offset-md-4 col-md-4 offset-md-4">DESCARGAR JUEGO</a> 
+                        <a href="http://dawjavi.insjoaquimmir.cat/gtinoco/curs2021/tr_ds_gt/TR_ds_gt/Proyect-Z-game/linux/Project-Z-linux/Project-Z.x86_64" class="descargar-juego btn btn-warning offset-2 col-8 offset-2 offset-sm-4 col-sm-4 offset-sm-4 offset-md-4 col-md-4 offset-md-4">DESCARGAR JUEGO LINUX</a> 
+                        <a href="http://dawjavi.insjoaquimmir.cat/gtinoco/curs2021/tr_ds_gt/TR_ds_gt/Proyect-Z-game/windows/Project-Z-windows/Project-Z%2086/Project-Z.exe" class="descargar-juego btn btn-warning offset-2 col-8 offset-2 offset-sm-4 col-sm-4 offset-sm-4 offset-md-4 col-md-4 offset-md-4">DESCARGAR JUEGO WINDOWS</a> 
                     </div>
                     
                 </div>

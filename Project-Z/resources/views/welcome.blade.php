@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="row">
-            <h1 class="titulo col-md-12 ">{{ __('PROJECT-Z') }}</h1>
+        <img class="images-logo" src="{{URL::asset('images/TituloWelcome.png')}}">
         </div>
         
     </x-slot>
@@ -65,6 +65,12 @@
             color: white !important;   
         }
     
+        .images-logo{
+            height:40%;
+            width:40%;
+        }
+
+ 
 
         /* Add a black background color to the top navigation */
         .navbar {
@@ -145,6 +151,10 @@
                 font-weight: bold;
                 color: white !important;
                 text-align: center;
+            }
+            .images-logo{
+                height:20%;
+                width:20%;
             }
 
         }
